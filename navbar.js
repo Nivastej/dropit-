@@ -17,14 +17,16 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 </div>
                 <span class="separator">|</span>
-                <input type="text" placeholder="Search for Items...">
+                <div class="search-input-container">
+                    <input type="text" id="search-input" placeholder="">
+                    <span id="placeholder-text" class="placeholder-text">Search for "Ice cream"</span>
+                </div>
                 <button type="button" class="search-button"><i class="fas fa-search"></i></button>
             </div>
         </div>
         <div class="navbar-item navbar-right">
             <div class="navbar-item">
                 <i class="fa-regular fa-heart icon"></i>
-
                 <a href="wishlist.html">WishList</a>
             </div>
             <div class="navbar-item dropdown">
@@ -50,5 +52,41 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.getElementById('navbar').innerHTML = navbarHTML;
 
+    const placeholders = ['Search for "Ice cream"', 'Search for "Biscuits"', 'Search for "Detergents"', 'Search for "Dog Food"', 'Search for "Nivas"', 'Search for "Rice"'];
+    let placeholderIndex = 0;
+    let placeholderInterval;
 
+    function updatePlaceholder() {
+        const placeholderText = document.getElementById('placeholder-text');
+        placeholderText.classList.add('scroll-up');
+        
+        setTimeout(() => {
+            placeholderIndex = (placeholderIndex + 1) % placeholders.length;
+            placeholderText.textContent = placeholders[placeholderIndex];
+            placeholderText.classList.remove('scroll-up');
+        }, 500);
+    }
+
+    function startPlaceholderAnimation() {
+        placeholderInterval = setInterval(updatePlaceholder, 2000);
+    }
+
+    function stopPlaceholderAnimation() {
+        clearInterval(placeholderInterval);
+    }
+
+    startPlaceholderAnimation();
+
+    const searchInput = document.getElementById('search-input');
+    const placeholderText = document.getElementById('placeholder-text');
+
+    searchInput.addEventListener('input', function() {
+        if (searchInput.value.length > 0) {
+            stopPlaceholderAnimation();
+            placeholderText.style.display = 'none';
+        } else {
+            placeholderText.style.display = 'block';
+            startPlaceholderAnimation();
+        }
+    });
 });

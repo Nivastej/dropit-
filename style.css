@@ -4,12 +4,11 @@ body {
     box-sizing: border-box;
 }
 
-p{
+p {
     font-family: "Quicksand", sans-serif;
     color: white;
     font-size: 12px;
     margin-left: 5px;
-
 }
 
 #navbar {
@@ -36,7 +35,6 @@ p{
     margin-left: 40px;
 }
 
-
 .navbar-item-left {
     justify-content: flex-start;
     flex-grow: 1;
@@ -59,7 +57,7 @@ p{
     align-items: center;
     background-color: white;
     padding: 5px 10px;
-    margin-left: 60px; 
+    margin-left: 60px;
 }
 
 .all-products-dropdown {
@@ -74,8 +72,13 @@ p{
     color: black;
 }
 
-.search-container input {
+.search-input-container {
+    position: relative;
     width: 450px;
+}
+
+#search-input {
+    width: 100%;
     padding: 5px;
     font-family: "Quicksand", sans-serif;
     font-size: 12px;
@@ -88,8 +91,13 @@ p{
     border: none;
     cursor: pointer;
     padding: 5px;
+    margin-left: 15px; 
 }
 
+.search-button i {
+    font-size: 16px;
+    color: black; 
+}
 .search-button:hover {
     background-color: #f2f2f2;
 }
@@ -121,7 +129,6 @@ p{
 .dropdown {
     position: relative;
 }
-
 
 .dropdown-icon {
     margin-left: 5px;
@@ -157,7 +164,6 @@ p{
 .dropdown:hover .dropdown-content {
     display: block;
 }
-
 
 .dropdown:hover .all-products-dropdown {
     color: black;
@@ -213,7 +219,7 @@ p{
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    margin-right: 20px; 
+    margin-right: 20px;
 }
 
 .bottom-bar-item {
@@ -268,7 +274,6 @@ p{
 }
 
 .explore-buttons {
-
     display: flex;
     gap: 10px;
 }
@@ -294,7 +299,6 @@ p{
     position: relative;
 }
 
-
 .category-list {
     display: flex;
     overflow-x: scroll;
@@ -308,7 +312,6 @@ p{
 .category-item {
     flex: 0 0 auto;
     width: 200px;
-    /* width: 150px; */
     padding: 20px;
     border-radius: 0px;
     text-align: center;
@@ -379,7 +382,7 @@ p{
 
 .arrow {
     background-color: #F2F3F4;
-    border-radius: 50%;    
+    border-radius: 50%;
     width: 50px;
     height: 50px;
     font-size: 20px;
@@ -387,7 +390,6 @@ p{
     color: #3BB77E;
     border: none;
 }
-
 
 .product-list {
     display: flex;
@@ -475,6 +477,7 @@ p{
 .add-to-cart:hover {
     background-color: #b5f8d7;
 }
+
 .product-name-wrapper {
     display: flex;
     justify-content: space-between;
@@ -504,4 +507,20 @@ p{
 
 .red {
     color: rgb(198, 64, 64);
+}
+
+.placeholder-text {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    font-size: 12px;
+    color: #888;
+    pointer-events: none;
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+.placeholder-text.scroll-up {
+    transform: translateY(0%);
+    opacity: 0;
 }
