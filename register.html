@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/96c75676d8.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Drop It | Register</title>
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding-left: 400px;
+            background-color: white;
+            position: relative;
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        form {
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        form input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+        }
+        form input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+        form label {
+            font-size: 0.9em;
+            color: #333;
+        }
+        form button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #3BB77E;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        form button:hover {
+            background-color: #2a8f62;
+        }
+        .alt-signup {
+            margin: 20px 0;
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+        .alt-signup img {
+            width: 30px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        .alt-signup a {
+            display: block;
+            text-decoration: none;
+            margin: 10px 0;
+            color: #333;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            width: 100%;
+        }
+        .alt-signup a:hover {
+            background-color: #f4f4f4;
+        }
+        .signin {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 400px;
+            text-align: left;
+        }
+        .signin a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .signin a:hover {
+            text-decoration: underline;
+        }
+        .bottom-right-img {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            max-width: 1000px;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar"></div>
+    <script src="navbar.js"></script>
+    <h1>Get Started Now</h1>
+    <form action="register.php" method="post">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="email" name="email" placeholder="Email address" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <div>
+            <input type="checkbox" name="terms" id="terms" required>
+            <label for="terms">I agree to the <a href="#">terms & policy</a></label>
+        </div>
+        <button type="submit" id="signup-button" disabled>Signup</button>
+    </form>
+    <div class="alt-signup">
+        <span>Or</span>
+        <a href="#"><img src="./assets/google.png" alt="Google"> Sign in with Google</a>
+        <a href="#"><img src="./assets/apple.png" alt="Apple"> Sign in with Apple</a>
+    </div>
+    <div class="signin">
+        Have an account? <a href="login.html">Sign In</a>
+    </div>
+    <img src="./assets/register.png" alt="register-image" class="bottom-right-img">
+    <script>
+        document.getElementById('terms').addEventListener('change', function() {
+            document.getElementById('signup-button').disabled = !this.checked;
+        });
+    </script>
+</body>
+</html>

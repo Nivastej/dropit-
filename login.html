@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/96c75676d8.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Drop It | Login</title>
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding-left: 400px;
+            background-color: white;
+            position: relative;
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .user-container {
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .form {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+        }
+        .action-button {
+            font-family: 'Quicksand', sans-serif;
+            width: 110%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            background-color: #3BB77E;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        
+        .action-button:hover {
+            background-color: #2a8f62;
+        }
+        .signup {
+            font-family: 'Quicksand', sans-serif;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 400px;
+            text-align: left;
+        }
+        .signup-button {
+            color: #007BFF;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .signup-button:hover {
+            text-decoration: underline;
+        }
+        .message {
+            text-align: center;
+            font-size: 16px;
+            color: red;
+            margin-bottom: 10px;
+        }
+
+        .hide-pass {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 14px;
+            cursor: pointer;
+            position: absolute;
+            right: 5px;
+            top: 18px;
+            color: #333;
+            text-align: center; 
+        }
+        .bottom-right-img {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            max-width: 1000px;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar"></div>
+    <script src="navbar.js"></script>
+
+    <div class="user-container">
+        <div id="message" class="message"></div>
+        <h2>Login</h2>
+        <form action="login.php" method="post">
+            <input type="text" name="username" class="form" placeholder="Username" required>
+            <div style="position: relative;">
+                <input type="password" name="password" class="form" placeholder="Password" required id="password">
+                <span onclick="hidePass()" class="hide-pass">Show</span>
+            </div>
+            <button type="submit" class="action-button">Login</button>
+        </form>
+        <div class="signup">
+            Don't have an account? <a href="register.html" class="signup-button">Sign up</a>
+        </div>
+    </div>
+
+    <img src="./assets/register.png" alt="register-image" class="bottom-right-img">
+
+    <script>
+        function hidePass() {
+            var passwordInput = document.getElementById('password');
+            var toggleBtn = document.querySelector('.hide-pass');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleBtn.textContent = 'Hide';
+            } else {
+                passwordInput.type = 'password';
+                toggleBtn.textContent = 'Show';
+            }
+        }
+    </script>
+</body>
+</html>
