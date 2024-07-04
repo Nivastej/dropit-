@@ -4,6 +4,14 @@ body {
     box-sizing: border-box;
 }
 
+p{
+    font-family: "Quicksand", sans-serif;
+    color: white;
+    font-size: 12px;
+    margin-left: 5px;
+
+}
+
 #navbar {
     display: flex;
     justify-content: space-between;
@@ -27,6 +35,7 @@ body {
     position: relative;
     margin-left: 40px;
 }
+
 
 .navbar-item-left {
     justify-content: flex-start;
@@ -109,6 +118,11 @@ body {
     gap: 50px;
 }
 
+.dropdown {
+    position: relative;
+}
+
+
 .dropdown-icon {
     margin-left: 5px;
     font-size: 10px;
@@ -142,6 +156,11 @@ body {
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+
+.dropdown:hover .all-products-dropdown {
+    color: black;
 }
 
 @media only screen and (max-width: 600px) {
@@ -219,7 +238,6 @@ body {
 }
 
 .explore-section {
-    margin-top: 100px;
     padding: 20px;
 }
 
@@ -257,7 +275,6 @@ body {
 
 .explore-button {
     font-family: "Quicksand", sans-serif;
-
     background: none;
     border: none;
     color: #3BB77E;
@@ -277,13 +294,6 @@ body {
     position: relative;
 }
 
-.arrow {
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: #3BB77E;
-}
 
 .category-list {
     display: flex;
@@ -368,12 +378,16 @@ body {
 }
 
 .arrow {
-    background: none;
-    border: none;
-    font-size: 24px;
+    background-color: #F2F3F4;
+    border-radius: 50%;    
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
     cursor: pointer;
     color: #3BB77E;
+    border: none;
 }
+
 
 .product-list {
     display: flex;
@@ -475,10 +489,19 @@ body {
     flex-grow: 1;
 }
 
-.heart-icon {
-    color: gray;
-    cursor: pointer;
+@keyframes bounce {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
 }
+
+.heart-icon.beat {
+    animation: bounce 0.6s;
+}
+
 .red {
     color: rgb(198, 64, 64);
 }

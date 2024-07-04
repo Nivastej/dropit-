@@ -6,7 +6,16 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         <div class="navbar-item">
             <div class="search-container">
-                <span class="all-products-dropdown">All Categories <i class="fas fa-chevron-down" style="color: black;"></i></span>
+                <div class="dropdown">
+                    <span class="all-products-dropdown">All Categories <i class="fas fa-chevron-down" style="color: black;"></i></span>
+                    <div class="dropdown-content">
+                        <a href="vegetables.html">Vegetables</a>
+                        <a href="fruits.html">Fruits</a>
+                        <a href="meat.html">Meat</a>
+                        <a href="electronics.html">Electronics</a>
+                        <a href="home-essentials.html">Home Essentials</a>
+                    </div>
+                </div>
                 <span class="separator">|</span>
                 <input type="text" placeholder="Search for Items...">
                 <button type="button" class="search-button"><i class="fas fa-search"></i></button>
@@ -15,20 +24,21 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="navbar-item navbar-right">
             <div class="navbar-item">
                 <i class="fa-regular fa-heart icon"></i>
+
                 <a href="wishlist.html">WishList</a>
             </div>
             <div class="navbar-item dropdown">
                 <i class="fas fa-shopping-cart icon"></i>
-                <a href="cart.html">My Cart</a>
+                <p>My Cart</p> 
                 <i class="fas fa-chevron-down dropdown-icon"></i>
                 <div class="dropdown-content">
+                    <a href="cart.html">Cart</a>
                     <a href="orders.php">My Orders</a>
-                    <a href="checkout.html">Checkout</a>
                 </div>
             </div>
             <div class="navbar-item dropdown">
                 <i class="fas fa-user icon"></i>
-                <a href="register.html">Sign Up</a>
+                <p>Sign Up</p>
                 <i class="fas fa-chevron-down dropdown-icon"></i>
                 <div class="dropdown-content">
                     <a href="profile.html">Profile</a>
@@ -39,4 +49,6 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
 
     document.getElementById('navbar').innerHTML = navbarHTML;
+
+
 });

@@ -9,6 +9,98 @@
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <title>Drop It</title>
+<style>
+    .hero-section {
+        background-image: url('./assets/bg-home.png');
+        margin-top: 130px;
+        background-size: cover;
+        background-position: center;
+        padding: 60px 0; 
+        color: #3BB77E;
+        text-align: center;
+        position: relative;
+        height: 485px; 
+    }
+
+    .hero-text {
+        margin: 0 20px;
+        padding: 20px;
+        position: relative;
+        z-index: 2;
+        text-align: left;
+        margin-top: 60px;
+    }
+
+    .hero-text h1 {
+        font-size: 3.5em;
+        margin-top: 0;
+        margin-left: 250px;
+        font-weight: 700;
+        line-height: 1.2;
+    }
+
+    .hero-subtext {
+        margin: 0 20px;
+        position: relative;
+        z-index: 2;
+        text-align: left;
+        margin-top: 10px;
+        margin-left: 250px;
+    }
+
+    .hero-subtext p {
+        font-size: 1.2em;
+        color: #838383;
+    }
+
+    .hero-image {
+        position: absolute;
+        right: 10%;
+        bottom: 10%;
+        z-index: 1;
+    }
+
+    .hero-image img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .email-subscription {
+        display: flex;
+        margin-left: 250px;
+    }
+
+    .email-subscription input[type="email"] {
+        padding: 10px;
+        font-size: 1em;
+        font-family: "Quicksand", sans-serif;
+        color: #ADADAD;
+        border: 0px solid #ffffff;
+        border-radius: 0px 0 0 0px;
+        width: 400px;
+        height: 40px;
+        outline: none;
+    }
+
+    .email-subscription button {
+        padding: 10px;
+        font-size: 1em;
+        font-family: "Quicksand", sans-serif;
+        height: 60px;
+        width: 120px;
+        border: 0px solid #3BB77E;
+        background-color: #3BB77E;
+        color: white;
+        border-radius: 0 0px 0px 0;
+        cursor: pointer;
+        gap:none;
+        outline: none;
+    }
+
+    .email-subscription button:hover {
+        background-color: #339966;
+    }
+</style>
 </head>
 <body>
     <div id="navbar"></div>
@@ -31,6 +123,24 @@
         </div>
     </div>
 
+    <div class="hero-section">
+        <div class="hero-text">
+            <h1>Don't miss amazing<br>grocery deals.</h1>
+            <div class="hero-subtext">
+                <p>Save up to 50% off on your first order</p>
+            </div>
+            <div class="email-subscription">
+                <input type="email" placeholder="Enter your email address">
+                <button>Subscribe</button>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="./assets/hero.png" alt="Grocery Deals">
+        </div>
+    </div>
+
+
+    
     <div class="explore-section">
         <div class="explore-header">
             <h2>Explore</h2>

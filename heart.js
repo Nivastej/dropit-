@@ -9,13 +9,19 @@ function toggleWishlist(icon, productName) {
         price: productPrice
     };
 
-    icon.classList.toggle('fas');
-    icon.classList.toggle('far');
-    icon.classList.toggle('red');
-
-    if (icon.classList.contains('fas')) {
+    if (!icon.classList.contains('fas')) {
+        icon.classList.add('fas');
+        icon.classList.remove('far');
+        icon.classList.add('red');
+        icon.classList.add('beat');
+        setTimeout(() => {
+            icon.classList.remove('beat');
+        }, 500);
         addToWishlist(product);
     } else {
+        icon.classList.remove('fas');
+        icon.classList.add('far');
+        icon.classList.remove('red');
         removeFromWishlist(productName);
     }
 }
