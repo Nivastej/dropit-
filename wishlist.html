@@ -5,20 +5,146 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://kit.fontawesome.com/96c75676d8.js" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="style.css">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<title>Drop It - Wishlist</title>
+<style>
+    body {
+        font-family: 'Quicksand', sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+    }
 
-<title>Drop It</title>
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
 
+    #wishlist-items {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: left;
+        gap: 20px;
+    }
+
+    .wishlist-item {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        width: 200px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .wishlist-image {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
+
+    .wishlist-name {
+        font-size: 18px;
+        margin: 0 0 5px;
+    }
+
+    .wishlist-price {
+        font-size: 16px;
+        color: #888;
+        margin: 0;
+    }
+
+    .wishlist-actions {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .wishlist-delete,
+    .wishlist-add-to-cart {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .wishlist-delete {
+        color: #e74c3c;
+    }
+
+    .wishlist-add-to-cart {
+        background-color: #DEF9EC;
+        color: #3BB77E;
+        font-size: 12px;
+        border: none;
+        padding: 5px 25px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .wishlist-add-to-cart i {
+        margin-right: 5px;
+    }
+</style>
 </head>
 <body>
 
 <div id="navbar"></div>
+
+<h1>Wishlist</h1>
+<div id="wishlist-items"></div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const wishlistItems = JSON.parse(localStorage.getItem('wishlist')) || [];
+        const wishlistContainer = document.getElementById('wishlist-items');
+
+        wishlistItems.forEach(item => {
+            const listItem = document.createElement('div');
+            listItem.classList.add('wishlist-item');
+
+            listItem.innerHTML = `
+                <img src="./assets/${item.image}" alt="${item.name}" class="wishlist-image">
+                <p class="wishlist-name">${item.name}</p>
+                <p class="wishlist-price">₹${item.price}</p>
+                <div class="wishlist-actions">
+                    <button class="wishlist-add-to-cart" onclick="addToCart('${item.name}')">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+                    <button class="wishlist-delete" onclick="removeFromWishlist('${item.name}')">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            `;
+
+            wishlistContainer.appendChild(listItem);
+        });
+    });
+
+    function removeFromWishlist(productName) {
+        let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+        wishlist = wishlist.filter(item => item.name !== productName);
+        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        location.reload(); 
+    }
+
+    function addToCart(productName) {
+        //need changes
+        alert(`${productName} added to cart!`);
+    }
+</script>
+
 <script src="./navbar.js"></script>
-
-
-
 
 </body>
 </html>

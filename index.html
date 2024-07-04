@@ -80,6 +80,14 @@
                     <p>Stationery & Crafts</p>
                     <span>9 Items</span>
                 </div>
+                <div class="category-item" style="background-color: #ECFFEC;">
+                    <img src="./assets/juice.png" alt="Cool Drinks & Juices">
+                    <p>Cool Drinks & Juices</p>
+                    <span>23 Items</span>
+                </div>
+
+
+                
             </div>
 
             <button class="arrow right-arrow"><i class="fas fa-arrow-right"></i></button>
@@ -103,49 +111,164 @@
             <button class="arrow left-arrow"><i class="fas fa-arrow-left"></i></button>
             <div class="product-list">
                 <div class="product-item">
-                    <img src="path/to/image1.png" alt="Product 1">
-                    <p>Product 1</p>
+                    <img src="./assets/product1.png" alt="Product 1">
+                    <div class="product-name-wrapper">
+                        <p>Tomato Local</p>
+                        <i class="far fa-heart heart-icon" onclick="toggleWishlist(this, 'Tomato Local')"></i>
+                    </div>
                     <span>1kg</span>
                     <div class="product-rating">
-                        <i class="fas fa-star star" data-rating="1"></i>
-                        <i class="fas fa-star star" data-rating="2"></i>
-                        <i class="fas fa-star star" data-rating="3"></i>
-                        <i class="fas fa-star star" data-rating="4"></i>
-                        <i class="fas fa-star star" data-rating="5"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star inactive"></i>
+                    </div>
+                    <div class="product-price-add">
+                        <div class="product-price">₹ 60</div>
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i> Add
+                        </button>
                     </div>
                 </div>
+                
                 <div class="product-item">
-                    <img src="path/to/image2.png" alt="Product 2">
-                    <p>Product 2</p>
+                    <img src="./assets/product2.png" alt="Product 2">
+                    <div class="product-name-wrapper">
+                        <p>Ginger</p>
+                        <i class="far fa-heart heart-icon" onclick="toggleWishlist(this, 'Ginger')"></i>
+                    </div>
                     <span>200g</span>
                     <div class="product-rating">
-                        <i class="fas fa-star star" data-rating="1"></i>
-                        <i class="fas fa-star star" data-rating="2"></i>
-                        <i class="fas fa-star star" data-rating="3"></i>
-                        <i class="fas fa-star star" data-rating="4"></i>
-                        <i class="fas fa-star star" data-rating="5"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star inactive"></i>
+                    </div>
+                    <div class="product-price-add">
+                        <div class="product-price">₹ 64</div>
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i> Add
+                        </button>
                     </div>
                 </div>
                 <div class="product-item">
-                    <img src="path/to/image3.png" alt="Product 3">
-                    <p>Product 3</p>
-                    <span>50g</span>
+                    <img src="./assets/product3.png" alt="Product 3">
+                    <div class="product-name-wrapper">
+                        <p>Product 3</p>
+                        <i class="far fa-heart heart-icon" onclick="toggleWishlist(this, 'Product 3')"></i>
+                    </div>
+                    <span>1kg</span>
                     <div class="product-rating">
-                        <i class="fas fa-star star" data-rating="1"></i>
-                        <i class="fas fa-star star" data-rating="2"></i>
-                        <i class="fas fa-star star" data-rating="3"></i>
-                        <i class="fas fa-star star" data-rating="4"></i>
-                        <i class="fas fa-star star" data-rating="5"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star inactive"></i>
+                    </div>
+                    <div class="product-price-add">
+                        <div class="product-price">₹ 60</div>
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i> Add
+                        </button>
                     </div>
                 </div>
-                <!-- Repeat for other products -->
+                <div class="product-item">
+                    <img src="./assets/product4.png" alt="Product 4">
+                    <div class="product-name-wrapper">
+                        <p>Product 4</p>
+                        <i class="far fa-heart heart-icon" onclick="toggleWishlist(this, 'Product 4')"></i>
+                    </div>
+                    <span>1kg</span>
+                    <div class="product-rating">
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star inactive"></i>
+                    </div>
+                    <div class="product-price-add">
+                        <div class="product-price">₹ 60</div>
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i> Add
+                        </button>
+                    </div>
+                </div>
+                <!-- <div class="product-item">
+                    <img src="./assets/product4.png" alt="Product 5">
+                    <div class="product-name-wrapper">
+                        <p>Product 5</p>
+                        <i class="far fa-heart heart-icon" onclick="toggleWishlist(this, 'Product5')"></i>
+                    </div>
+                    <span>1kg</span>
+                    <div class="product-rating">
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star inactive"></i>
+                    </div>
+                    <div class="product-price-add">
+                        <div class="product-price">₹ 60</div>
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i> Add
+                        </button>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <img src="./assets/product3.png" alt="Product 6">
+                    <div class="product-name-wrapper">
+                        <p>Product 6</p>
+                        <i class="far fa-heart heart-icon" onclick="toggleWishlist(this, 'Product6')"></i>
+                    </div>
+                    <span>1kg</span>
+                    <div class="product-rating">
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star inactive"></i>
+                    </div>
+                    <div class="product-price-add">
+                        <div class="product-price">₹ 60</div>
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i> Add
+                        </button>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <img src="./assets/product2.png" alt="Product 7">
+                    <div class="product-name-wrapper">
+                        <p>Product 7</p>
+                        <i class="far fa-heart heart-icon" onclick="toggleWishlist(this, 'Product7')"></i>
+                    </div>
+                    <span>1kg</span>
+                    <div class="product-rating">
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star inactive"></i>
+                    </div>
+                    <div class="product-price-add">
+                        <div class="product-price">₹ 60</div>
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i> Add
+                        </button>
+                    </div>
+                </div> -->
+
+ 
             </div>
             <button class="arrow right-arrow"><i class="fas fa-arrow-right"></i></button>
         </div>
     </div>
     
+    
+    
 <script src="./navbar.js"></script>
 <script src="./slider.js"></script>
-<script src="./rating.js"></script>
+<script src="./heart.js"></script>
 </body>
 </html>
