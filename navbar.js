@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.getElementById('navbar').innerHTML = navbarHTML;
 
-    const placeholders = ['Search for "Ice cream"', 'Search for "Biscuits"', 'Search for "Detergents"', 'Search for "Dog Food"', 'Search for "Nivas"', 'Search for "Rice"'];
+    const placeholders = ['Search for "Ice cream"', 'Search for "Biscuits"', 'Search for "Detergents"', 'Search for "Dog Food"', 'Search for "Makeup"', 'Search for "Sunscreen"'];
     let placeholderIndex = 0;
     let placeholderInterval;
 
@@ -67,26 +67,26 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 500);
     }
 
-    function startPlaceholderAnimation() {
-        placeholderInterval = setInterval(updatePlaceholder, 2000);
+    function startAnimation() {
+        placeholderInterval = setInterval(updatePlaceholder, 4000);
     }
 
-    function stopPlaceholderAnimation() {
+    function stopAnimation() {
         clearInterval(placeholderInterval);
     }
 
-    startPlaceholderAnimation();
+    startAnimation();
 
     const searchInput = document.getElementById('search-input');
     const placeholderText = document.getElementById('placeholder-text');
 
     searchInput.addEventListener('input', function() {
         if (searchInput.value.length > 0) {
-            stopPlaceholderAnimation();
+            stopAnimation();
             placeholderText.style.display = 'none';
         } else {
             placeholderText.style.display = 'block';
-            startPlaceholderAnimation();
+            startAnimation();
         }
     });
 });

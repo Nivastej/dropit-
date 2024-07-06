@@ -11,13 +11,19 @@ p {
     margin-left: 5px;
 }
 
+input, button{
+    font-family: "Quicksand", sans-serif;
+
+}
+
+
 #navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 17px 40px;
     width: 100%;
-    height: 40px;
+    height: 35px;
     background: #3BB77E;
     border: 0px solid #FFFFFF;
     backdrop-filter: blur(15px);
@@ -200,7 +206,7 @@ p {
     border-top: 0px solid #ffffff;
     margin-top: 40px;
     position: fixed;
-    top: 30px;
+    top: 25px;
     left: 0;
     z-index: 999;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -254,32 +260,19 @@ p {
     margin-bottom: 20px;
 }
 
-.explore-header h2 {
+.explore-header p {
     font-size: 24px;
     color: #3BB77E;
     margin: 0;
+    margin-left: 15px;
+    font-weight: 600;
 }
-
-.features-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.features-header h2 {
-    font-size: 24px;
-    color: #000000;
-    margin: 0;
-}
-
 .explore-buttons {
     display: flex;
     gap: 10px;
 }
 
 .explore-button {
-    font-family: "Quicksand", sans-serif;
     background: none;
     border: none;
     color: #3BB77E;
@@ -289,9 +282,6 @@ p {
     text-decoration: none;
 }
 
-.explore-button:hover {
-    font-weight: bold;
-}
 
 .categories {
     display: flex;
@@ -311,7 +301,7 @@ p {
 
 .category-item {
     flex: 0 0 auto;
-    width: 200px;
+    width: 150px;
     padding: 20px;
     border-radius: 0px;
     text-align: center;
@@ -337,30 +327,31 @@ p {
     color: #666;
 }
 
-.featured-section {
+.featured-section, .daily-best-sells {
     padding: 20px;
 }
 
-.featured-header {
+.featured-header, .daily-best-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
 }
 
-.featured-header h2 {
+.featured-header p, .daily-best-header p {
     font-size: 24px;
     color: #000000;
     margin: 0;
+    margin-left: 15px;
+    font-weight: 600;
 }
 
-.featured-buttons {
+.featured-buttons{
     display: flex;
     gap: 10px;
 }
 
 .featured-button {
-    font-family: "Quicksand", sans-serif;
     background: none;
     border: none;
     color: #3BB77E;
@@ -370,9 +361,6 @@ p {
     text-decoration: none;
 }
 
-.featured-button:hover {
-    font-weight: bold;
-}
 
 .featured-products {
     display: flex;
@@ -381,11 +369,13 @@ p {
 }
 
 .arrow {
-    background-color: #F2F3F4;
+    background-color: #ffffff;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
     cursor: pointer;
     color: #3BB77E;
     border: none;
@@ -399,33 +389,32 @@ p {
 }
 
 .product-item {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px;
-    margin-right: 20px;
     background-color: white;
-    border-radius: 5px;
+    width: 100%;
+    /* min-width: 200px; */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    min-width: 200px;
+    /* text-align: center; */
+    position: relative;
+    padding: 10px;
+    margin: 0;
+    margin-right: 20px;
+    border-radius: 5px;
+}
+
+.product-card{
+    margin-left: 15px;
 }
 
 .product-item img {
+    margin: 0;
+
     width: 100%;
     height: auto;
-    border-bottom: 1px solid #eaeaea;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-}
-
-.product-item p {
-    margin: 0;
-    font-size: 12px;
-    color: gray;
 }
 
 .product-item span {
     margin: 5px 0;
+    margin-bottom: 10px;
     font-size: 14px;
     color: #3BB77E;
 }
@@ -453,18 +442,18 @@ p {
 }
 
 .product-price {
-    font-size: 14px;
+    font-size: 16px;
     color: #3BB77E;
-    font-weight: bold;
 }
 
-.add-to-cart {
+.add-to-cart-button {
     display: flex;
     align-items: center;
     background-color: #DEF9EC;
     color: #3BB77E;
     font-size: 12px;
     border: none;
+    height: 30px;
     padding: 5px 25px;
     cursor: pointer;
     margin-left: auto;
@@ -480,17 +469,26 @@ p {
 
 .product-name-wrapper {
     display: flex;
-    justify-content: space-between;
-    width: 100%;
     align-items: center;
+    justify-content: space-between; 
+    margin-bottom: 5px; 
 }
 
-.product-item p {
-    margin: 0;
-    font-size: 12px;
+.product-name-wrapper p {
     color: gray;
+    margin: 0;
+    text-align: left;
     flex-grow: 1;
 }
+
+
+
+/* .product-item p {
+    margin-bottom: 10px;
+    text-align: left;
+    font-size: 12px;
+    color: gray;
+} */
 
 @keyframes bounce {
     0%, 100% {
@@ -523,4 +521,251 @@ p {
 .placeholder-text.scroll-up {
     transform: translateY(0%);
     opacity: 0;
+}
+
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.quantity-button {
+    background-color: #DEF9EC;
+    color: #000000;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 12px;
+    align-items: center;
+    display: flex;
+    margin-left: auto;
+}
+
+.quantity-button:hover {
+    background-color: #a7f6cf;
+}
+
+.quantity {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+.expires-in {
+    display: flex;
+    background-color: #F35244;
+    align-items: center;
+    margin-left: 20px;
+    padding: 5px 9px;
+    color: #ffffff;
+}
+
+.expires-in .timer {
+    background-color: #F35244;
+    color: white;
+    padding: 5px 9px;
+}
+
+.products-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.product-card {
+    background-color: white;
+    padding: 20px;
+    min-width: 200px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    padding: 10px;
+    margin-right: 20px;
+    border-radius: 5px;
+}
+
+.discount-label {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: #FFD480;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 0px;
+    font-size: 0.8em;
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.product-card .category {
+    margin: 0;
+    font-size: 12px;
+    padding-bottom: 10px;
+
+    text-align: left;
+    color: gray;
+}
+
+.product-card .product-title {
+    font-size: 16px;
+    color: #3BB77E;
+    text-align: left;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    margin: 0;
+
+}
+
+.product-card .seller {
+    color: #3BB77E;
+    text-align: left;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+.daily-best-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.daily-best-header-left {
+    display: flex;
+    align-items: center;
+}
+
+.daily-best-header-left p {
+    margin-right: 80px;
+}
+
+.daily-best-buttons {
+
+    display: flex;
+    gap: 10px;
+}
+
+.daily-best-button {
+    text-decoration: none;
+
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    background-color: white;
+    color: #3BB77E;
+    cursor: pointer;
+}
+
+
+.daily-add-to-cart-button{
+    width: 100%;
+    text-align: center;
+    background-color:#3BB77E;
+    color: #ffffff;
+    font-size: 12px;
+    border: none;
+    height: 30px;
+    padding: 5px 25px;
+    cursor: pointer;
+}
+
+.price {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.new-price {
+    color: #3BB77E;
+    font-size: 18px;
+    text-align: left;
+}
+
+.old-price {
+    color: #aaa;
+    text-decoration: line-through;
+    font-size: 14px;
+    padding-top: 2px;
+    margin-bottom: auto;
+}
+
+.sold {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    color: #3BB77E;
+}
+
+.sold-bar {
+    width: 100%;
+    height: 5px;
+    background-color: #3BB77E;
+    margin-bottom: 5px;
+}
+
+.new-member-offer {
+    background-color: #FFFCEB;
+    padding: 20px;
+    width: 245px;
+    text-align: center;
+}
+
+.new-member-offer h3 {
+    font-size: 2em;
+    color: #3BB77E;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-form input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    font-size: 12px;
+}
+
+.signup-form button {
+    background-color: #3BB77E;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 12px;
+}
+
+.input-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+}
+
+.input-wrapper i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ccc;
+}
+
+.input-wrapper input[type="email"], .input-wrapper input[type="password"]{
+    width: 100%;
+    padding: 10px 10px 10px 40px;
+    font-size: 12px;
+    font-family: "Quicksand", sans-serif;
+    color: #000000;
+    border: 1px solid #ccc;
+    outline: none;
+    box-sizing: border-box; 
+}
+
+.input-wrapper input[type="email"]::placeholder, .input-wrapper input[type="password"]::placeholder {
+    color: #ccc;
 }

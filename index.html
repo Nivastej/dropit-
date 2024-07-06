@@ -14,16 +14,16 @@
         scroll-behavior: smooth;
     }
     .hero-section {
-        background-image: url('./assets/bg-home.png');
+        background-image: url('assets/bg-home.png');
         background-color: #FFFCEB;
-        margin-top: 130px;
+        margin-top: 120px;
         background-size: cover;
         background-position: center;
         padding: 60px 0; 
         color: #3BB77E;
         text-align: center;
         position: relative;
-        height: 485px; 
+        height: 490px; 
     }
 
     .hero-text {
@@ -104,6 +104,18 @@
     .email-subscription button:hover {
         background-color: #339966;
     }
+
+    .category-list, .product-list {
+        -ms-overflow-style: none;  
+        scrollbar-width: none;  
+    }
+    .category-list::-webkit-scrollbar, .product-list::-webkit-scrollbar {
+        display: none; 
+    }
+    .current {
+        font-weight: bold;
+    }
+
 </style>
 </head>
 <body>
@@ -117,7 +129,7 @@
                 <i class="fas fa-fire"></i> Hot Deals
             </a>
             <a href="new_products.html" class="bottom-bar-item">
-                <i class="fas fa-microphone"></i> New Products
+                <img src="assets/li_megaphone.png" alt="New Products"> New Products
             </a>
         </div>
         <div class="bottom-bar-right">
@@ -147,17 +159,17 @@
     
     <div class="explore-section">
         <div class="explore-header">
-            <h2>Explore</h2>
+            <p>Explore</p>
             <div class="explore-buttons">
-                <button class="explore-button">All</button>
-                <button class="explore-button">Vegetables</button>
-                <button class="explore-button">Fruits</button>
-                <button class="explore-button">Coffee & Teas</button>
-                <button class="explore-button">Meat</button>
+                <a href="index.html" class="explore-button">All</a>
+                <a href="vegetables.html" class="explore-button">Vegetables</a>
+                <a href="fruits.html" class="explore-button">Fruits</a>
+                <a href="coffee_teas.html" class="explore-button">Coffee & Teas</a>
+                <a href="meat.html" class="explore-button">Meat</a>
             </div>
         </div>
         <div class="categories">
-            <button class="arrow left-arrow"><i class="fas fa-arrow-left"></i></button>
+            <button class="arrow left-arrow"><i class="fa-solid fa-chevron-left"></i></i></button>
             <div class="category-list">
                 <div class="category-item" style="background-color: #FEEFEA;">
                     <img src="./assets/fruits.png" alt="Fruits & Vegetables">
@@ -199,26 +211,24 @@
                     <p>Cool Drinks & Juices</p>
                     <span>23 Items</span>
                 </div>
-
-
                 
             </div>
 
-            <button class="arrow right-arrow"><i class="fas fa-arrow-right"></i></button>
+            <button class="arrow right-arrow"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
     </div>
 
-    <!-- Features -->
+    <!-- features -->
 
     <div class="featured-section">
         <div class="featured-header">
-            <h2>Featured Products</h2>
+            <p>Featured Products</p>
             <div class="featured-buttons">
-                <button class="featured-button">All</button>
-                <button class="featured-button">Vegetables</button>
-                <button class="featured-button">Fruits</button>
-                <button class="featured-button">Coffee & Teas</button>
-                <button class="featured-button">Meat</button>
+                <a href="index.html" class="featured-button">All</a>
+                <a href="vegetables.html" class="featured-button">Vegetables</a>
+                <a href="fruits.html" class="featured-button">Fruits</a>
+                <a href="coffee_teas.html" class="featured-button">Coffee & Teas</a>
+                <a href="meat.html" class="featured-button">Meat</a>
             </div>
         </div>
         <div class="featured-products">
@@ -230,8 +240,8 @@
                         <p>Tomato Local</p>
                         <i class="far fa-heart heart-icon" onclick="toggleWishlist(this, 'Tomato Local')"></i>
                     </div>
-                    <span>1kg</span>
-                    <div class="product-rating">
+                    <span class="product-weight">1kg</span>
+                    <div class="product-rating" style="margin-top: 10px;">
                         <i class="fas fa-star star"></i>
                         <i class="fas fa-star star"></i>
                         <i class="fas fa-star star"></i>
@@ -240,11 +250,18 @@
                     </div>
                     <div class="product-price-add">
                         <div class="product-price">₹ 60</div>
-                        <button class="add-to-cart">
-                            <i class="fas fa-shopping-cart"></i> Add
-                        </button>
+                        <div class="add-to-cart">
+                            <button class="add-to-cart-button">
+                                <i class="fas fa-shopping-cart"></i> Add
+                            </button>
+                        </div>
+                        <div class="quantity-controls" style="display: none;">
+                            <button class="quantity-button" onclick="updateQuantity(this, -1)">-</button>
+                            <span class="quantity">1</span>
+                            <button class="quantity-button" onclick="updateQuantity(this, 1)">+</button>
+                        </div>
                     </div>
-                </div>
+                </div>             
                 
                 <div class="product-item">
                     <img src="./assets/product2.png" alt="Product 2">
@@ -253,7 +270,7 @@
                         <i class="far fa-heart heart-icon" onclick="toggleWishlist(this, 'Ginger')"></i>
                     </div>
                     <span>200g</span>
-                    <div class="product-rating">
+                    <div class="product-rating" style="margin-top: 10px;">
                         <i class="fas fa-star star"></i>
                         <i class="fas fa-star star"></i>
                         <i class="fas fa-star star"></i>
@@ -261,10 +278,17 @@
                         <i class="fas fa-star star inactive"></i>
                     </div>
                     <div class="product-price-add">
-                        <div class="product-price">₹ 64</div>
-                        <button class="add-to-cart">
-                            <i class="fas fa-shopping-cart"></i> Add
-                        </button>
+                        <div class="product-price">₹ 60</div>
+                        <div class="add-to-cart">
+                            <button class="add-to-cart-button">
+                                <i class="fas fa-shopping-cart"></i> Add
+                            </button>
+                        </div>
+                        <div class="quantity-controls" style="display: none;">
+                            <button class="quantity-button" onclick="updateQuantity(this, -1)">-</button>
+                            <span class="quantity">1</span>
+                            <button class="quantity-button" onclick="updateQuantity(this, 1)">+</button>
+                        </div>
                     </div>
                 </div>
                 <div class="product-item">
@@ -274,7 +298,7 @@
                         <i class="far fa-heart heart-icon" onclick="toggleWishlist(this, 'Product 3')"></i>
                     </div>
                     <span>1kg</span>
-                    <div class="product-rating">
+                    <div class="product-rating" style="margin-top: 10px;">
                         <i class="fas fa-star star"></i>
                         <i class="fas fa-star star"></i>
                         <i class="fas fa-star star"></i>
@@ -283,9 +307,16 @@
                     </div>
                     <div class="product-price-add">
                         <div class="product-price">₹ 60</div>
-                        <button class="add-to-cart">
-                            <i class="fas fa-shopping-cart"></i> Add
-                        </button>
+                        <div class="add-to-cart">
+                            <button class="add-to-cart-button">
+                                <i class="fas fa-shopping-cart"></i> Add
+                            </button>
+                        </div>
+                        <div class="quantity-controls" style="display: none;">
+                            <button class="quantity-button" onclick="updateQuantity(this, -1)">-</button>
+                            <span class="quantity">1</span>
+                            <button class="quantity-button" onclick="updateQuantity(this, 1)">+</button>
+                        </div>
                     </div>
                 </div>
                 <div class="product-item">
@@ -295,7 +326,7 @@
                         <i class="far fa-heart heart-icon" onclick="toggleWishlist(this, 'Product 4')"></i>
                     </div>
                     <span>1kg</span>
-                    <div class="product-rating">
+                    <div class="product-rating" style="margin-top: 10px;">
                         <i class="fas fa-star star"></i>
                         <i class="fas fa-star star"></i>
                         <i class="fas fa-star star"></i>
@@ -304,85 +335,149 @@
                     </div>
                     <div class="product-price-add">
                         <div class="product-price">₹ 60</div>
-                        <button class="add-to-cart">
-                            <i class="fas fa-shopping-cart"></i> Add
-                        </button>
+                        <div class="add-to-cart">
+                            <button class="add-to-cart-button">
+                                <i class="fas fa-shopping-cart"></i> Add
+                            </button>
+                        </div>
+                        <div class="quantity-controls" style="display: none;">
+                            <button class="quantity-button" onclick="updateQuantity(this, -1)">-</button>
+                            <span class="quantity">1</span>
+                            <button class="quantity-button" onclick="updateQuantity(this, 1)">+</button>
+                        </div>
                     </div>
-                </div>
-                <!-- <div class="product-item">
-                    <img src="./assets/product4.png" alt="Product 5">
-                    <div class="product-name-wrapper">
-                        <p>Product 5</p>
-                        <i class="far fa-heart heart-icon" onclick="toggleWishlist(this, 'Product5')"></i>
-                    </div>
-                    <span>1kg</span>
-                    <div class="product-rating">
-                        <i class="fas fa-star star"></i>
-                        <i class="fas fa-star star"></i>
-                        <i class="fas fa-star star"></i>
-                        <i class="fas fa-star star"></i>
-                        <i class="fas fa-star star inactive"></i>
-                    </div>
-                    <div class="product-price-add">
-                        <div class="product-price">₹ 60</div>
-                        <button class="add-to-cart">
-                            <i class="fas fa-shopping-cart"></i> Add
-                        </button>
-                    </div>
-                </div>
-                <div class="product-item">
-                    <img src="./assets/product3.png" alt="Product 6">
-                    <div class="product-name-wrapper">
-                        <p>Product 6</p>
-                        <i class="far fa-heart heart-icon" onclick="toggleWishlist(this, 'Product6')"></i>
-                    </div>
-                    <span>1kg</span>
-                    <div class="product-rating">
-                        <i class="fas fa-star star"></i>
-                        <i class="fas fa-star star"></i>
-                        <i class="fas fa-star star"></i>
-                        <i class="fas fa-star star"></i>
-                        <i class="fas fa-star star inactive"></i>
-                    </div>
-                    <div class="product-price-add">
-                        <div class="product-price">₹ 60</div>
-                        <button class="add-to-cart">
-                            <i class="fas fa-shopping-cart"></i> Add
-                        </button>
-                    </div>
-                </div>
-                <div class="product-item">
-                    <img src="./assets/product2.png" alt="Product 7">
-                    <div class="product-name-wrapper">
-                        <p>Product 7</p>
-                        <i class="far fa-heart heart-icon" onclick="toggleWishlist(this, 'Product7')"></i>
-                    </div>
-                    <span>1kg</span>
-                    <div class="product-rating">
-                        <i class="fas fa-star star"></i>
-                        <i class="fas fa-star star"></i>
-                        <i class="fas fa-star star"></i>
-                        <i class="fas fa-star star"></i>
-                        <i class="fas fa-star star inactive"></i>
-                    </div>
-                    <div class="product-price-add">
-                        <div class="product-price">₹ 60</div>
-                        <button class="add-to-cart">
-                            <i class="fas fa-shopping-cart"></i> Add
-                        </button>
-                    </div>
-                </div> -->
-
- 
+                </div> 
             </div>
             <button class="arrow right-arrow"><i class="fas fa-arrow-right"></i></button>
+        </div>   
+    </div>
+
+<!-- daily best -->
+<div class="daily-best-sells">
+    <div class="daily-best-header">
+        <div class="daily-best-header-left">
+            <p style="color: #3BB77E;">Daily Best Sells</p>
+            <div class="daily-best-buttons">
+
+                <a href="index.html" class="daily-best-button">Featured</a>
+                <a href="popular.html" class="daily-best-button">Popular</a>
+                <a href="new-products.html" class="daily-best-button">New</a>
+            </div>
+
+            <div class="expires-in">
+                <span>Expires in :</span>
+                <div id="timer" style="margin-left: 15px;">0 : 00 : 00</div>
+            </div>
+            
         </div>
     </div>
-    
-    
-    
-<script src="./navbar.js"></script>
-<script src="./slider.js"></script>
-<script src="./heart.js"></script>
+    <div class="products-wrapper">
+        <div class="product-card">
+            <div class="discount-label">Save 10%</div>
+            <img src="./assets/coffee.png" alt="Coffee">
+            <p class="category">Coffee & Tea</p>
+            <p class="product-title">Coffee 1kg</p>
+            <div class="product-rating">
+                <i class="fas fa-star star"></i>
+                <i class="fas fa-star star"></i>
+                <i class="fas fa-star star"></i>
+                <i class="fas fa-star star"></i>
+                <i class="fas fa-star star inactive"></i>
+                <span style="font-size: 12px;">(4)</span>
+            </div>
+            <p class="seller"><span style="color: #ADADAD;">By</span> Mr. Food</p>
+            <div class="price">
+                <span class="new-price">₹ 64</span>
+                <span class="old-price">80</span>
+            </div>
+            <div class="sold">
+                <div class="sold-bar" style="width: 60%; border-radius: 5px"></div>
+                <span style="font-size: 12px; text-align: left">Sold: 20/50</span>
+            </div>
+            <button class="daily-add-to-cart-button"><i class="fas fa-shopping-cart"></i> Add to cart</button>
+        </div>
+
+        <!-- email new memver -->
+        <div class="new-member-offer">
+            <h3>10% OFF</h3>
+            <p style="color: #3BB77E; font-size: 16px;">New members signing up for the first time</p>
+            <form class="signup-form">
+                <!-- <i class="fa-regular fa-envelope" style="color:#000000; text-align: left;">Email Address <span style="color: red;">*</span></i> -->
+                <p style="color:#000000; text-align: left;">Email Address <span style="color: red;">*</span></p>
+                <div class="input-wrapper">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input type="email" placeholder="abc@gmail.com" required>
+                </div>              
+                <p style="color:#000000; text-align: left;">Password <span style="color: red;">*</span></p>
+
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-key"></i>
+                    <input type="password" placeholder="Maximum 8 characters" required>
+
+                </div>  
+
+                <button type="submit">Register Now</button>
+            </form>
+        </div>
+    </div>
+</div>   
+
+<script src="navbar.js"></script>
+<script src="slider.js"></script>
+<script src="heart.js"></script>
+<script src="quantity.js"></script>
+
+<script>
+    const targetDateKey = 'timerTargetDate';
+    function initializeTimer() {
+        let targetDate = localStorage.getItem(targetDateKey);
+        if (!targetDate) {
+            targetDate = new Date();
+            targetDate.setHours(targetDate.getHours() + 5);
+            localStorage.setItem(targetDateKey, targetDate);
+        } else {
+            targetDate = new Date(targetDate);
+        }
+
+        function functionTimer() {
+            const now = new Date();
+            const timeDifference = targetDate - now;
+            if (timeDifference <= 0) {
+                document.getElementById('timer').innerHTML = "0 : 00 : 00";
+                clearInterval(timerInterval);
+                localStorage.removeItem(targetDateKey);
+            } else {
+                const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+                document.getElementById('timer').innerHTML = `${hours} : ${minutes.toString().padStart(2, '0')} : ${seconds.toString().padStart(2, '0')}`;
+            }
+        }
+        const timerInterval = setInterval(functionTimer, 1000);
+        functionTimer();
+    }
+
+    document.addEventListener('DOMContentLoaded', initializeTimer);
+</script>
+
+
+<script>
+    function setActivePage() {
+        const currentPage = window.location.pathname.split("/").pop();
+        const links = document.querySelectorAll('.explore-button, .featured-button, .daily-best-button');
+
+        links.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === currentPage) {
+                link.classList.add('current');
+            }
+        });
+    }
+
+    setActivePage();
+</script>
+
+
 </body>
 </html>
