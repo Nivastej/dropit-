@@ -1,22 +1,25 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const navbarHTML = `
+
+    const aboveBar = `
+        <div class="above-bar">
+            <div class="above-bar-left">
+                <i class="fas fa-map-marker-alt"></i> Location
+            </div>
+            <div class="above-bar-right">
+                <div class="above-bar-item">
+                    <i class="fas fa-phone"></i> 108-10808 24/7 Support Center
+                </div>
+            </div>
+        </div>
+    `;
+
+    const navbar = `
         <div class="navbar-item">
             <img src="./assets/logo.png" alt="Drop It">
             <a href="index.html"><h1>Drop It</h1></a>
         </div>
         <div class="navbar-item">
             <div class="search-container">
-                <div class="dropdown">
-                    <span class="all-products-dropdown">All Categories <i class="fas fa-chevron-down" style="color: black;"></i></span>
-                    <div class="dropdown-content">
-                        <a href="vegetables.html">Vegetables</a>
-                        <a href="fruits.html">Fruits</a>
-                        <a href="meat.html">Meat</a>
-                        <a href="electronics.html">Electronics</a>
-                        <a href="home-essentials.html">Home Essentials</a>
-                    </div>
-                </div>
-                <span class="separator">|</span>
                 <div class="search-input-container">
                     <input type="text" id="search-input" placeholder="">
                     <span id="placeholder-text" class="placeholder-text">Search for "Ice cream"</span>
@@ -26,21 +29,18 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         <div class="navbar-item navbar-right">
             <div class="navbar-item">
-                <i class="fa-regular fa-heart icon"></i>
-                <a href="wishlist.html">WishList</a>
+                <a href="wishlist.html"><i class="fa-regular fa-heart icon"></i></a>
             </div>
             <div class="navbar-item dropdown">
                 <i class="fas fa-shopping-cart icon"></i>
-                <p>My Cart</p> 
                 <i class="fas fa-chevron-down dropdown-icon"></i>
-                <div class="dropdown-content">
-                    <a href="cart.html">Cart</a>
+                <div class="dropdown-content" style>
+                    <a href="cart.html" >Cart</a>
                     <a href="orders.php">My Orders</a>
                 </div>
             </div>
             <div class="navbar-item dropdown">
                 <i class="fas fa-user icon"></i>
-                <p>Sign Up</p>
                 <i class="fas fa-chevron-down dropdown-icon"></i>
                 <div class="dropdown-content">
                     <a href="profile.html">Profile</a>
@@ -50,7 +50,44 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     `;
 
-    document.getElementById('navbar').innerHTML = navbarHTML;
+    const bottomBar = `
+    <div class="navbar-item">
+        <div class="search-container">
+            <div class="dropdown">
+                <span class="all-products-dropdown">
+                    <i class="fas fa-bars"></i>
+                    All Categories 
+                    <i class="fas fa-chevron-down" style="color: black;"></i>
+                </span>
+                <div class="dropdown-content">
+                    <a href="vegetables.html">Vegetables</a>
+                    <a href="fruits.html">Fruits</a>
+                    <a href="meat.html">Meat</a>
+                    <a href="electronics.html">Electronics</a>
+                    <a href="home-essentials.html">Home Essentials</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom-bar-left">
+        <a href="index.html" class="bottom-bar-item">
+            <i class="fas fa-home"></i> Home
+        </a>
+        <a href="hotdeals.html" class="bottom-bar-item">
+            <i class="fas fa-fire"></i> Hot Deals
+        </a>
+        <a href="new_products.html" class="bottom-bar-item">
+            <img src="assets/li_megaphone.png" alt="New Products"> New Products
+        </a>
+    </div>
+`;
+
+
+    document.getElementById('navbar').innerHTML = navbar;
+    document.getElementById('bottom-bar').innerHTML = bottomBar;
+    document.getElementById('above-bar').innerHTML = aboveBar;
+
 
     const placeholders = ['Search for "Ice cream"', 'Search for "Biscuits"', 'Search for "Detergents"', 'Search for "Dog Food"', 'Search for "Makeup"', 'Search for "Sunscreen"'];
     let placeholderIndex = 0;
