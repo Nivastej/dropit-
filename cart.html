@@ -13,46 +13,81 @@
 <title>Drop It</title>
 
 <style>
-
 .cart-page {
-    margin-top :150px;
-    padding: 20px;
-    max-width: 800px;
+    margin-top: 150px;
+    width: 100%;
+    max-width: 1200px;
 }
 
-.cart-item {
-    margin-top :40px;
+.cart-header, .cart-item {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     border-bottom: 1px solid #ddd;
     padding: 10px 0;
 }
 
+.cart-header div, .cart-item div {
+    flex: 1;
+    text-align: center;
+}
+
+.cart-header div:first-child, .cart-item div:first-child {
+    text-align: left;
+}
+
+.cart-item .item-details {
+    display: flex;
+    align-items: center;
+}
+
 .cart-item img {
+    width: 100px;
     margin-right: 20px;
 }
 
-.cart-item p {
-    color: #000;
-    margin: 0 10px;
+.cart-item .item-info {
+    display: flex;
+    align-items: center;
+}
+
+.cart-item .item-info p {
+    margin: 0;
+    text-align: left;
 }
 
 .cart-total {
     font-size: 16px;
     margin-top: 20px;
-    margin-right: 40px;
     text-align: right;
 }
 
-.checkout{
+.checkout {
     display: block;
     margin: 20px auto;
     padding: 10px 20px;
-    
     font-size: 12px;
     cursor: pointer;
 }
 
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quantity-button {
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #DEF9EC;
+    margin: 0 5px;
+}
+
+.quantity {
+    width: 40px;
+    text-align: center;
+    font-weight: 600;
+}
 </style>
 </head>
 <body>
