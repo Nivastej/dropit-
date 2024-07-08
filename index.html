@@ -263,7 +263,7 @@
                     <div class="product-price-add">
                         <div class="product-price">₹ 60</div>
                         <div class="add-to-cart">
-                            <button class="add-to-cart-button">
+                            <button class="add-to-cart-button" onclick="addToCart(this)">
                                 <i class="fas fa-shopping-cart"></i> Add
                             </button>
                         </div>
@@ -294,7 +294,7 @@
                     <div class="product-price-add">
                         <div class="product-price">₹ 60</div>
                         <div class="add-to-cart">
-                            <button class="add-to-cart-button">
+                            <button class="add-to-cart-button" onclick="addToCart(this)">
                                 <i class="fas fa-shopping-cart"></i> Add
                             </button>
                         </div>
@@ -354,9 +354,7 @@
                     <div class="product-price-add">
                         <div class="product-price">₹ 60</div>
                         <div class="add-to-cart">
-                            <button class="add-to-cart-button">
-                                <i class="fas fa-shopping-cart"></i> Add
-                            </button>
+                            <button class="add-to-cart-button"><i class="fas fa-shopping-cart"></i> Add</button>
                         </div>
                         <div class="quantity-controls" style="display: none;">
                             <button class="quantity-button" onclick="updateQuantity(this, -1)">-</button>
@@ -412,7 +410,19 @@
                 <div class="sold-bar" style="width: 60%; border-radius: 5px"></div>
                 <span style="font-size: 12px; text-align: left">Sold: 20/50</span>
             </div>
-            <button class="daily-add-to-cart-button"><i class="fas fa-shopping-cart"></i> Add to cart</button>
+            <!-- <button class="daily-add-to-cart-button"><i class="fas fa-shopping-cart"></i> Add to cart</button> -->
+            <div class="product-price-add">
+                <div class="add-to-cart">
+                    <button class="daily-add-to-cart-button" onclick="addToCart(this)">
+                        <i class="fas fa-shopping-cart"></i> Add to cart
+                    </button>
+                </div>
+                <div class="quantity-controls" style="display: none;">
+                    <button class="daily-best-quantity" onclick="updateQuantity(this, -1)">-</button>
+                    <span class="daily-quantity">1</span>
+                    <button class="daily-best-quantity" onclick="updateQuantity(this, 1)">+</button>
+                </div>
+            </div>
         </div>
 
         <!-- email new memver -->
@@ -686,7 +696,7 @@
 
 <script src="navbar.js"></script>
 <script src="slider.js"></script>
-<script src="heart.js"></script>
+<script src="favorite.js"></script>
 <script src="quantity.js"></script>
 
 <script>

@@ -92,14 +92,12 @@ input, button{
 
 .search-input-container {
     background-color: #F3F3F3;
-
     position: relative;
     width: 450px;
 }
 
 #search-input {
     background-color: #F3F3F3;
-
     width: 100%;
     padding: 5px;
     font-family: "Quicksand", sans-serif;
@@ -477,14 +475,14 @@ input, button{
 
 .product-item img {
     margin: 0;
-
+    margin-bottom: 5px;
     width: 100%;
     height: auto;
 }
 
 .product-item span {
     margin: 5px 0;
-    margin-bottom: 10px;
+
     font-size: 14px;
     color: #3BB77E;
 }
@@ -519,14 +517,14 @@ input, button{
 .add-to-cart-button {
     display: flex;
     align-items: center;
+    text-align: center;
     background-color: #DEF9EC;
     color: #3BB77E;
     font-size: 12px;
+    padding: 5px 25px;
     border: none;
     height: 30px;
-    padding: 5px 25px;
     cursor: pointer;
-    margin-left: auto;
 }
 
 .add-to-cart i {
@@ -593,11 +591,11 @@ input, button{
     opacity: 0;
 }
 
-
 .quantity-controls {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 30px;
     gap: 5px;
 }
 
@@ -605,9 +603,14 @@ input, button{
     background-color: #DEF9EC;
     color: #000000;
     border: none;
+    width: 20px;
     padding: 5px 10px;
     cursor: pointer;
     font-size: 12px;
+
+    justify-content: center;
+    text-align: center;
+    align-items: center;
     align-items: center;
     display: flex;
     margin-left: auto;
@@ -618,7 +621,37 @@ input, button{
 }
 
 .quantity {
+    width: 30px;
+
+    justify-content: center;
+    text-align: center;
+    align-items: center;
     font-size: 12px;
+    font-weight: bold;
+}
+
+
+.daily-best-quantity {
+    background-color: #DEF9EC;
+    color: #000000;
+    border: none;
+    width: 50px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    align-items: center;
+    border: #000;
+    justify-content: center;
+    display: flex;
+    margin-left: auto;
+}
+
+.daily-best-quantity:hover {
+    background-color: #a7f6cf;
+}
+.daily-quantity {
+    width: 110px;
+    font-size: 14px;
     font-weight: bold;
 }
 
@@ -722,7 +755,8 @@ input, button{
 
 
 .daily-add-to-cart-button{
-    width: 100%;
+    width: 165%;
+
     text-align: center;
     background-color:#3BB77E;
     color: #ffffff;

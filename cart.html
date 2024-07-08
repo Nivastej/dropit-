@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://kit.fontawesome.com/96c75676d8.js" crossorigin="anonymous"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyX95Pp5Kdh_u6Gv_BSRYuu4jSt3dZjJo&libraries=places"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+<title>Drop It</title>
+
+<style>
+
+.cart-page {
+    margin-top :150px;
+    padding: 20px;
+    max-width: 800px;
+}
+
+.cart-item {
+    margin-top :40px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.cart-item img {
+    margin-right: 20px;
+}
+
+.cart-item p {
+    color: #000;
+    margin: 0 10px;
+}
+
+.cart-total {
+    font-size: 16px;
+    margin-top: 20px;
+    margin-right: 40px;
+    text-align: right;
+}
+
+.checkout{
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    
+    font-size: 12px;
+    cursor: pointer;
+}
+
+</style>
+</head>
+<body>
+    <div id="above-bar"></div>
+    <div id="navbar"></div>
+    <div id="bottom-bar"></div>
+
+    <div class="cart-page">
+        <h1>My Cart</h1>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-total" id="cartTotal"></div>
+        <button class="checkout" onclick="checkout()">Checkout</button>
+    </div>
+
+    <script src="cart.js"></script>
+    <script src="navbar.js"></script>
+
+</body>
+</html>
