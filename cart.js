@@ -3,6 +3,26 @@ document.addEventListener('DOMContentLoaded', function() {
     const cartTotalContainer = document.getElementById('cartTotal');
     const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
     
+    if (cartItems.length === 0) {
+        const emptyMessage = document.createElement('p');
+        emptyMessage.textContent = "Your cart is empty";
+        emptyMessage.style.textAlign = "center";
+        emptyMessage.style.fontSize = "16px";
+        emptyMessage.style.marginTop = "20px";
+
+        const shopNowButton = document.createElement('button');
+        shopNowButton.textContent = "Shop Now";
+        shopNowButton.className = "checkout";
+        shopNowButton.onclick = function() {
+            window.location.href = "index.html"; //when cart is empry
+        };
+
+        cartItemsContainer.appendChild(emptyMessage);
+        cartItemsContainer.appendChild(shopNowButton);
+        cartTotalContainer.style.display = "none";
+        return; 
+    }
+
     let totalCost = 0;
 
     cartItems.forEach(item => {
@@ -42,5 +62,5 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function checkout() {
-    alert('not implemeted yet!');
+    alert('not implemented yet!');
 }

@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-
     const aboveBar = `
         <div class="above-bar">
             <div class="above-bar-left">
@@ -32,12 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <a href="wishlist.html"><i class="fa-regular fa-heart icon"></i></a>
             </div>
             <div class="navbar-item dropdown">
-                <i class="fas fa-shopping-cart icon"></i>
-                <i class="fas fa-chevron-down dropdown-icon"></i>
-                <div class="dropdown-content" style>
-                    <a href="cart.html" >Cart</a>
-                    <a href="orders.php">My Orders</a>
-                </div>
+                <a href="cart.html"><i class="fas fa-shopping-cart icon"></i><span id="cart-quantity" class="cart-quantity"></span></a>
             </div>
             <div class="navbar-item dropdown">
                 <i class="fas fa-user icon"></i>
@@ -83,11 +77,9 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 `;
 
-
     document.getElementById('navbar').innerHTML = navbar;
     document.getElementById('bottom-bar').innerHTML = bottomBar;
     document.getElementById('above-bar').innerHTML = aboveBar;
-
 
     const placeholders = ['Search for "Ice cream"', 'Search for "Biscuits"', 'Search for "Detergents"', 'Search for "Dog Food"', 'Search for "Makeup"', 'Search for "Sunscreen"'];
     let placeholderIndex = 0;
@@ -126,4 +118,19 @@ document.addEventListener('DOMContentLoaded', function() {
             startAnimation();
         }
     });
+
+    const cartQuantityNum = document.getElementById('cart-quantity');
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    
+    let totalQuantity = 0;
+    cartItems.forEach(item => {
+        totalQuantity += item.quantity;
+    });
+
+    if (totalQuantity > 0) {
+        cartQuantityNum.textContent = totalQuantity;
+        cartQuantityNum.style.display = 'inline-block';
+    } else {
+        cartQuantityNum.style.display = 'none';
+    }
 });

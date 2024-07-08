@@ -42,23 +42,18 @@ function updateQuantity(button, change) {
 
     if (currentQuantity >= 1) {
         quantitySpan.textContent = currentQuantity;
-    }
-
-    if (currentQuantity <= 0) {
-        currentQuantity = 0;
-        quantitySpan.textContent = currentQuantity;
-
+    } else {
+        // edge case
         const productItem = button.closest('.product-item, .product-card');
         const priceAddContainer = productItem.querySelector('.product-price-add');
         const addToCartContainer = priceAddContainer.querySelector('.add-to-cart');
         
         addToCartContainer.style.display = 'block';
         quantityControls.style.display = 'none';
-
-        updateCartState(button);
-    } else {
-        updateCartState(button);
+        quantitySpan.textContent = 0; 
     }
+
+    updateCartState(button);
 }
 
 function updateCartState(button) {
@@ -68,7 +63,7 @@ function updateCartState(button) {
     const productQuantity = parseInt(productItem.querySelector('.quantity, .daily-quantity').textContent);
     const productPrice = parseFloat(productItem.querySelector('.product-price, .new-price').textContent.replace('₹', ''));
     
-    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
     const existingItemIndex = cartItems.findIndex(item => item.name === productName);
 
     if (existingItemIndex > -1) {
@@ -87,4 +82,18 @@ function updateCartState(button) {
     }
 
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+    // for quantity update cart in navbar
+    const cartQuantityNum = document.getElementById('cart-quantity');
+    let totalQuantity = 0;
+    cartItems.forEach(item => {
+        totalQuantity += item.quantity;
+    });
+
+    if (totalQuantity > 0) {
+        cartQuantityNum.textContent = totalQuantity;
+        cartQuantityNum.style.display = 'inline-block';
+    } else {
+        cartQuantityNum.style.display = 'none';
+    }
 }
