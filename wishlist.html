@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://kit.fontawesome.com/96c75676d8.js" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -96,15 +95,20 @@
         margin-right: 5px;
     }
 
-    /* .heart-icon {
-        color: gray;
-        cursor: pointer;
+    #notification {
+        position: fixed;
+        top: 150px;
+        width: 94%;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        background-color: #3bb77d6b;
+        color: white;
+        padding: 10px 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        display: none;
     }
-    .red {
-        color: rgb(198, 64, 64);
-    } */
-
-
 </style>
 </head>
 <body>
@@ -113,6 +117,7 @@
 <div id="navbar"></div>
 <div id="bottom-bar"></div>
 <div id="wishlist-items"></div>
+<div id="notification"></div>
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -128,7 +133,7 @@
                 <p class="wishlist-name">${item.name}</p>
                 <p class="wishlist-price">₹${item.price}</p>
                 <div class="wishlist-actions">
-                    <button class="wishlist-add-to-cart" onclick="addToCart('${item.name}')">
+                    <button class="wishlist-add-to-cart" onclick="addToCart('${item.name}', '${item.image}', ${item.price})">
                         <i class="fas fa-shopping-cart"></i> Add to Cart
                     </button>
                     <button class="wishlist-delete" onclick="removeFromWishlist('${item.name}')">
@@ -148,14 +153,54 @@
         location.reload(); 
     }
 
-    function addToCart(productName) {
-        //need changes
-        alert('added to cart');
+    function addToCart(productName, productImage, productPrice) {
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        const existingItemIndex = cartItems.findIndex(item => item.name === productName);
+
+        if (existingItemIndex > -1) {
+            cartItems[existingItemIndex].quantity += 1;
+        } else {
+            cartItems.push({
+                name: productName,
+                image: `./assets/${productImage}`,
+                price: productPrice,
+                quantity: 1
+            });
+        }
+
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        updateCartQuantityNavbar();
+        showNotification('Item added to cart');
+    }
+
+    function updateCartQuantityNavbar() {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        const cartQuantityNum = document.getElementById('cart-quantity');
+        let totalQuantity = 0;
+
+        cartItems.forEach(item => {
+            totalQuantity += item.quantity;
+        });
+
+        if (totalQuantity > 0) {
+            cartQuantityNum.textContent = totalQuantity;
+            cartQuantityNum.style.display = 'inline-block';
+        } else {
+            cartQuantityNum.style.display = 'none';
+        }
+    }
+
+    function showNotification(message) {
+        const notification = document.getElementById('notification');
+        notification.textContent = message;
+        notification.style.display = 'block';
+        
+        setTimeout(() => {
+            notification.style.display = 'none';
+        }, 3000);
     }
 </script>
 
 <script src="./navbar.js"></script>
-
-
 </body>
 </html>

@@ -1,16 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const aboveBar = `
-        <div class="above-bar">
-            <div class="above-bar-left">
-                <i class="fas fa-map-marker-alt"></i> Location
-            </div>
-            <div class="above-bar-right">
-                <div class="above-bar-item">
-                    <i class="fas fa-phone"></i> 108-10808 24/7 Support Center
-                </div>
-            </div>
-        </div>
-    `;
+
 
     const navbar = `
         <div class="navbar-item">
@@ -19,6 +8,21 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         <div class="navbar-item">
             <div class="search-container">
+                <div class="dropdown">
+                <span class="all-products-dropdown">
+                    <i class="fas fa-bars"></i>
+                    All Categories 
+                    <i class="fas fa-chevron-down" style="color: black;"></i>
+                </span>
+                <div class="dropdown-content">
+                    <a href="vegetables.html">Vegetables</a>
+                    <a href="fruits.html">Fruits</a>
+                    <a href="meat.html">Meat</a>
+                    <a href="electronics.html">Electronics</a>
+                    <a href="home-essentials.html">Home Essentials</a>
+                </div>
+            </div>
+
                 <div class="search-input-container">
                     <input type="text" id="search-input" placeholder="">
                     <span id="placeholder-text" class="placeholder-text">Search for "Ice cream"</span>
@@ -35,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             <div class="navbar-item dropdown">
                 <i class="fas fa-user icon"></i>
-                <i class="fas fa-chevron-down dropdown-icon"></i>
                 <div class="dropdown-content">
                     <a href="profile.html">Profile</a>
                     <a href="login.html">Login</a>
@@ -44,42 +47,8 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     `;
 
-    const bottomBar = `
-    <div class="navbar-item">
-        <div class="search-container">
-            <div class="dropdown">
-                <span class="all-products-dropdown">
-                    <i class="fas fa-bars"></i>
-                    All Categories 
-                    <i class="fas fa-chevron-down" style="color: black;"></i>
-                </span>
-                <div class="dropdown-content">
-                    <a href="vegetables.html">Vegetables</a>
-                    <a href="fruits.html">Fruits</a>
-                    <a href="meat.html">Meat</a>
-                    <a href="electronics.html">Electronics</a>
-                    <a href="home-essentials.html">Home Essentials</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="bottom-bar-left">
-        <a href="index.html" class="bottom-bar-item">
-            <i class="fas fa-home"></i> Home
-        </a>
-        <a href="hotdeals.html" class="bottom-bar-item">
-            <i class="fas fa-fire"></i> Hot Deals
-        </a>
-        <a href="new_products.html" class="bottom-bar-item">
-            <img src="assets/li_megaphone.png" alt="New Products"> New Products
-        </a>
-    </div>
-`;
-
     document.getElementById('navbar').innerHTML = navbar;
-    document.getElementById('bottom-bar').innerHTML = bottomBar;
-    document.getElementById('above-bar').innerHTML = aboveBar;
+
 
     const placeholders = ['Search for "Ice cream"', 'Search for "Biscuits"', 'Search for "Detergents"', 'Search for "Dog Food"', 'Search for "Makeup"', 'Search for "Sunscreen"'];
     let placeholderIndex = 0;

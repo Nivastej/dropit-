@@ -39,7 +39,6 @@
             margin-bottom: 20px;
             color: #333;
         }
-        
         .form {
             width: 100%;
             padding: 10px;
@@ -48,9 +47,9 @@
             border: 1px solid #ccc;
             font-size: 1em;
         }
-        .action-button {
+        .action-button, .otp-button {
             font-family: 'Quicksand', sans-serif;
-            width: 110%;
+            width: 100%;
             padding: 10px;
             border: none;
             border-radius: 5px;
@@ -59,8 +58,7 @@
             cursor: pointer;
             margin-top: 20px;
         }
-        
-        .action-button:hover {
+        .action-button:hover, .otp-button:hover {
             background-color: #2a8f62;
         }
         .signup {
@@ -84,16 +82,19 @@
             color: red;
             margin-bottom: 10px;
         }
-
-        .hide-pass {
-            font-family: 'Quicksand', sans-serif;
-            font-size: 14px;
-            cursor: pointer;
-            position: absolute;
-            right: 5px;
-            top: 18px;
-            color: #333;
-            text-align: center; 
+        .otp-container {
+            display: none;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .otp-input {
+            width: calc(100% / 6 - 10px);
+            margin-right: 5px;
+            text-align: center;
+            font-size: 1em;
+        }
+        .otp-input:last-child {
+            margin-right: 0;
         }
         .bottom-right-img {
             position: absolute;
@@ -102,6 +103,73 @@
             max-width: 1000px;
         }
     </style>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+        // firebase config
+        const firebaseConfig = {
+            apiKey: "AIzaSyA5qbz95la3YacBFiCJoYFQQ5xs1Ob0Psc",
+            authDFiomain: "otp-gen-4a87e.firebaseapp.com",
+            projectId: "otp-gen-4a87e",
+            storageBucket: "otp-gen-4a87e.appspot.com",
+            messagingSenderId: "31875597094",
+            appId: "1:31875597094:web:4f146c47fb6e9cbb0e77e7",
+            measurementId: "G-Z2QPMM3DPE"
+        };
+        firebase.initializeApp(firebaseConfig);
+
+        function requestOTP() {
+            var mobileNumber = document.getElementById('mobile').value;
+            if (!mobileNumber) {
+                document.getElementById('message').innerText = 'Please enter a mobile number';
+                return;
+            }
+            var formattedNumber = mobileNumber.startsWith('+91') ? mobileNumber : `+91${mobileNumber}`;
+
+            if (window.recaptchaVerifier) {
+                grecaptcha.reset(window.recaptchaWidgetId);
+            }
+
+            window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+                'size': 'normal',
+                'callback': function(response) {
+                    sendOTP(formattedNumber);
+                },
+                'expired-callback': function() {
+                    document.getElementById('message').innerText = 'captcha expired.';
+                }
+            });
+
+            window.recaptchaVerifier.render().then(function(widgetId) {
+                window.recaptchaWidgetId = widgetId;
+                sendOTP(formattedNumber);
+            }).catch(function(error) {
+                console.error('Error rendering reCAPTCHA:', error);
+                document.getElementById('message').innerText = error.message;
+            });
+        }
+
+
+        function verifyOTP() {
+            var otp = '';
+            for (var i = 1; i <= 6; i++) {
+                otp += document.getElementById('otp' + i).value;
+            }
+
+            if (otp.length === 6) {
+                window.confirmationResult.confirm(otp).then(function(result) {
+                    var user = result.user;
+                    document.getElementById('message').innerText = 'OTP verified successfully';
+                }).catch(function(error) {
+                    console.error('Error during OTP verification:', error);
+                    document.getElementById('message').innerText = 'Invalid OTP';
+                });
+            } else {
+                document.getElementById('message').innerText = 'Please enter a 6-digit OTP';
+            }
+        }
+    </script>
 </head>
 <body>
     <div id="above-bar"></div>
@@ -112,13 +180,19 @@
     <div class="user-container">
         <div id="message" class="message"></div>
         <h2>Login</h2>
-        <form action="login.php" method="post">
-            <input type="text" name="username" class="form" placeholder="Username" required>
-            <div style="position: relative;">
-                <input type="password" name="password" class="form" placeholder="Password" required id="password">
-                <span onclick="hidePass()" class="hide-pass">Show</span>
+        <form id="login-form">
+            <input type="text" name="mobile" class="form" placeholder="Mobile Number" required id="mobile">
+            <button type="button" class="otp-button" onclick="requestOTP()">Get OTP</button>
+            <div id="recaptcha-container"></div>
+            <div class="otp-container" id="otp-container">
+                <input type="text" class="form otp-input" maxlength="1" id="otp1">
+                <input type="text" class="form otp-input" maxlength="1" id="otp2">
+                <input type="text" class="form otp-input" maxlength="1" id="otp3">
+                <input type="text" class="form otp-input" maxlength="1" id="otp4">
+                <input type="text" class="form otp-input" maxlength="1" id="otp5">
+                <input type="text" class="form otp-input" maxlength="1" id="otp6">
+                <button type="button" class="action-button" onclick="verifyOTP()">Verify</button>
             </div>
-            <button type="submit" class="action-button">Login</button>
         </form>
         <div class="signup">
             Don't have an account? <a href="register.html" class="signup-button">Sign up</a>
@@ -126,19 +200,6 @@
     </div>
 
     <img src="./assets/register.png" alt="register-image" class="bottom-right-img">
-
-    <script>
-        function hidePass() {
-            var passwordInput = document.getElementById('password');
-            var toggleBtn = document.querySelector('.hide-pass');
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                toggleBtn.textContent = 'Hide';
-            } else {
-                passwordInput.type = 'password';
-                toggleBtn.textContent = 'Show';
-            }
-        }
-    </script>
 </body>
 </html>
+
