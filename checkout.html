@@ -16,7 +16,7 @@
         margin: 100px;
         padding: 20px;
     }
-    .order-summary, .payment-methods {
+    .order-summary, .payment-methods, .delivery-address {
         background-color: white;
         padding: 20px;
         border-radius: 10px;
@@ -50,16 +50,16 @@
         justify-content: space-between;
         margin-bottom: 10px;
     }
-    .payment-methods {
+    .payment-methods, .delivery-address {
         flex: 1;
     }
-    .payment-methods h2 {
+    .payment-methods h2, .delivery-address h2 {
         margin-bottom: 20px;
     }
-    .payment-methods .method {
+    .payment-methods .method, .delivery-address .method {
         margin-bottom: 10px;
     }
-    .payment-methods .method input {
+    .payment-methods .method input, .delivery-address .method input {
         margin-right: 10px;
     }
     .payment-methods .card-details {
@@ -80,7 +80,7 @@
     .payment-methods .card-details .card-number input {
         width: 30%;
     }
-    .payment-methods button {
+    .payment-methods button, .delivery-address button {
         width: 100%;
         padding: 10px;
         border: none;
@@ -91,9 +91,85 @@
         font-size: 16px;
         margin-top: 20px;
     }
-    .payment-methods button:hover {
+    .payment-methods button:hover, .delivery-address button:hover {
         background-color: #2a8f62;
     }
+    .hidden {
+        display: none;
+    }
+    .back-arrow {
+        cursor: pointer;
+        color: #3BB77E;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+    }
+    .back-arrow:hover {
+        color: #2a8f62;
+    }
+    .contact-form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+    }
+    .contact-form-group.two-column {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .contact-form-group.two-column > div {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 48%;
+    }
+    .contact-form-group label {
+        margin-bottom: 5px;
+    }
+    .contact-form-group input {
+        width: 95%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .error {
+        color: red;
+        margin-bottom: 15px;
+    }
+    .progress {
+        display: flex;
+        justify-content: space-between;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .progress .step {
+        display: flex;
+        margin-left: 25px;
+        align-items: center;
+    }
+
+    .progress .step i {
+        font-size: 20px;
+        margin-right: 10px;
+        color: #ccc;
+    }
+
+    .progress .step.completed i {
+        color: #3BB77E;
+    }
+
+    .progress .step.current i {
+        color: #3BB77E;
+    }
+
+    .progress .step span {
+        margin-left: 10px;
+    }
+
+    
+
 </style>
 </head>
 <body>
@@ -122,7 +198,74 @@
                 </div>
             </div>
         </div>
-        <div class="payment-methods">
+        <div class="delivery-address">
+            <div class="progress">
+                <div class="step completed">
+                    <span>Delivery Address</span>
+                </div>
+                <div class="step tick">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="step">
+                    <span>Payment</span>
+                </div>
+            </div>
+            <h2>Contact Details</h2>
+            <div class="error hidden" id="error">Please fill out all required fields.</div>
+            <div class="contact-form-group two-column">
+                <div>
+                    <label>First Name</label>
+                    <input type="text" id="firstName" required>
+                </div>
+                <div>
+                    <label>Last Name</label>
+                    <input type="text" id="lastName" required>
+                </div>
+            </div>
+            <div class="contact-form-group">
+                <label>Email</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="contact-form-group">
+                <label>Phone Number</label>
+                <input type="text" id="phone" required>
+            </div>
+            <div class="contact-form-group">
+                <label>Flat/House no.</label>
+                <input type="text" id="houseNo" required>
+            </div>
+            <div class="contact-form-group">
+                <label>Address</label>
+                <input type="text" id="address" required>
+            </div>
+            <div class="contact-form-group two-column">
+                <div>
+                    <label>City</label>
+                    <input type="text" id="city" required>
+                </div>
+                <div>
+                    <label>State</label>
+                    <input type="text" id="state" required>
+                </div>
+            </div>
+            <div class="contact-form-group">
+                <label>Postal Code</label>
+                <input type="text" id="postalCode" required>
+            </div>
+            <div class="contact-form-group">
+                <label>Famous Landmark</label>
+                <input type="text" id="landmark">
+            </div>
+            <div>
+                <input type="checkbox" id="sameAddress">
+                <label>My shipping and billing address are the same</label>
+            </div>
+            <button onclick="validateAndContinue()">Continue</button>
+        </div>
+        <div class="payment-methods hidden">
+            <div class="back-arrow" onclick="goToContactDetails()">
+                <i style="margin-right: 10px;" class="fas fa-arrow-left"></i> Back to Contact Details
+            </div>
             <h2>Payment Methods</h2>
             <div class="method">
                 <input type="radio" name="payment-method" id="pay-on-delivery" onclick="toggleCardDetails()">
@@ -132,10 +275,10 @@
                 <input type="radio" name="payment-method" id="credit-debit-card" onclick="toggleCardDetails()" checked>
                 <label for="credit-debit-card">Credit/Debit Cards</label>
                 <div class="card-details" id="cardDetails">
-                    <input type="text" placeholder="Card number">
+                    <input type="text" placeholder="Card number" required>
                     <div class="card-number">
-                        <input type="text" placeholder="MM / YY">
-                        <input type="text" placeholder="CVV">
+                        <input type="text" placeholder="MM / YY" required>
+                        <input type="text" placeholder="CVV" required>
                     </div>
                 </div>
             </div>
@@ -163,12 +306,14 @@
                 itemElement.innerHTML = `
                     <img src="${item.image}" alt="${item.name}">
                     <div class="details">
-                        <div>${item.name}</div>
-                        <div class="price">₹${item.price.toFixed(2)} x ${item.quantity}</div>
+                        <p>${item.name}</p>
+                        <p class="price">₹${item.price.toFixed(2)} x ${item.quantity}</p>
                     </div>
+                    <div>₹${(item.price * item.quantity).toFixed(2)}</div>
                 `;
 
                 orderItemsContainer.appendChild(itemElement);
+
                 subtotal += item.price * item.quantity;
             });
 
@@ -181,18 +326,64 @@
             document.getElementById('totalPay').textContent = `₹${totalDue.toFixed(2)}`;
         });
 
+        function validateAndContinue() {
+            const requiredFields = document.querySelectorAll('.delivery-address input[required]');
+            let allFieldsFilled = true;
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    allFieldsFilled = false;
+                    field.style.borderColor = 'red';
+                } else {
+                    field.style.borderColor = '#ccc';
+                }
+            });
+
+            if (allFieldsFilled) {
+                document.querySelector('.error').classList.add('hidden');
+                goToPayment();
+            } else {
+                document.querySelector('.error').classList.remove('hidden');
+            }
+        }
+
+        function goToPayment() {
+            document.querySelector('.delivery-address').classList.add('hidden');
+            document.querySelector('.payment-methods').classList.remove('hidden');
+            updateProgress('payment');
+        }
+
+        function goToContactDetails() {
+            document.querySelector('.payment-methods').classList.add('hidden');
+            document.querySelector('.delivery-address').classList.remove('hidden');
+            updateProgress('contact');
+        }
+
+        function updateProgress(step) {
+            const steps = document.querySelectorAll('.progress .step');
+            steps.forEach(s => {
+                s.classList.remove('completed', 'current');
+            });
+            if (step === 'contact') {
+                steps[0].classList.add('completed');
+                steps[1].classList.add('current');
+                steps[2].classList.remove('completed');
+            } else if (step === 'payment') {
+                steps[0].classList.add('completed');
+                steps[1].classList.add('completed');
+                steps[2].classList.add('current');
+            }
+        }
+
         function toggleCardDetails() {
             const cardDetails = document.getElementById('cardDetails');
-            const creditDebitCard = document.getElementById('credit-debit-card');
+            const isCardSelected = document.getElementById('credit-debit-card').checked;
 
-            if (creditDebitCard.checked) {
+            if (isCardSelected) {
                 cardDetails.style.display = 'flex';
             } else {
                 cardDetails.style.display = 'none';
             }
         }
-
-        toggleCardDetails();
 
         function handlePayment() {
             const paymentMethod = document.querySelector('input[name="payment-method"]:checked').nextElementSibling.textContent;
@@ -201,12 +392,11 @@
             localStorage.setItem('paymentMethod', paymentMethod);
             localStorage.setItem('totalDue', totalDue);
             localStorage.setItem('paymentTime', paymentTime);
-            //celar cart
-            localStorage.removeItem('cartItems');
+            // Clear cart
+            localStorage.removeItem('checkoutItems');
             window.location.href = 'order-confirmation.html';
         }
     </script>
-            <script src="footer.js"></script>
-
+    <script src="footer.js"></script>
 </body>
 </html>
