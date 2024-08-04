@@ -147,7 +147,7 @@
                 <input type="radio" name="payment-method" id="other-methods" onclick="toggleCardDetails()">
                 <label for="other-methods">Other Payment Methods</label>
             </div>
-            <button>Pay <span id="totalPay">₹0.00</span></button>
+            <button onclick="handlePayment()">Pay <span id="totalPay">₹0.00</span></button>
         </div>
     </div>
     <script>
@@ -193,6 +193,16 @@
         }
 
         toggleCardDetails();
+
+        function handlePayment() {
+            const paymentMethod = document.querySelector('input[name="payment-method"]:checked').nextElementSibling.textContent;
+            const totalDue = document.getElementById('totalPay').textContent;
+            const paymentTime = new Date().toLocaleString();
+            localStorage.setItem('paymentMethod', paymentMethod);
+            localStorage.setItem('totalDue', totalDue);
+            localStorage.setItem('paymentTime', paymentTime);
+            window.location.href = 'order-confirmation.html';
+        }
     </script>
 </body>
 </html>
