@@ -20,13 +20,13 @@ body {
     background-color: white;
     position: relative;
     align-items: flex-start;
-    padding-left: 500px;
+    padding-left: 300px;
     box-sizing: border-box;
 }
 .header {
     display: flex;
     align-items: center;
-    margin-top: 500px;
+    margin-top: 550px;
 }
 .header img {
     width: 50px;
@@ -63,7 +63,7 @@ form input {
     box-sizing: border-box;
 }
 
-form input[type="text"], input[type="email"], input[type="password"]{
+form input[type="text"], input[type="tel"] ,input[type="email"], input[type="password"]{
     color: #000000;
     margin-right: 10px;
     margin-bottom: 10px;
@@ -160,8 +160,9 @@ form button:hover {
 .bottom-right-img {
     position: fixed;
     bottom: 0;
+    width: 40%;
     right: 0;
-    max-width: 1000px;
+    /* max-width: 1000px; */
 }
 </style>
 </head>
@@ -182,6 +183,8 @@ form button:hover {
     <input type="text" name="name" placeholder="Enter your First Name" required>
     <p style="color:#000000; text-align: left; font-size: 14px; font-weight: 500;"> Last Name <span style="color: red;">*</span></p>
     <input type="text" name="name" placeholder="Enter your Last Name" required>
+    <p style="color:#000000; text-align: left; font-size: 14px; font-weight: 500;"> Phone Number <span style="color: red;">*</span></p>
+    <input type="tel" name="tel" placeholder="Enter your Phone Number" required>
     <p style="color:#000000; text-align: left; font-size: 14px; font-weight: 500;">Email Address <span style="color: red;">*</span></p>
     <input type="email" name="email" placeholder="Enter you Email address" required>
     <p style="color:#000000; text-align: left; font-size: 14px; font-weight: 500;">Password <span style="color: red;">*</span></p>
@@ -196,13 +199,13 @@ form button:hover {
     <div class="separator"><span style="font-size: 12px;">or</span></div>
     <div class="buttons">
         <a href="google.com"><i class="fab fa-google"></i> Sign up with Google</a>
-        <a href="#"><i class="fab fa-apple"></i> Sign ip with Apple</a>
+        <a href="#"><i class="fab fa-apple"></i> Sign up with Apple</a>
     </div>
 </div>
-    <div class="signin">
+    <div style="margin-bottom: 100px;" class="signin">
     Have an account? <a href="login.html">Sign In</a>
 </div>
-    <img src="./assets/register.png" alt="register-image" class="bottom-right-img">
+    <img src="./assets/register-bg.png" alt="register-image" class="bottom-right-img">
     <script>
     document.getElementById('terms').addEventListener('change', function() {
         document.getElementById('signup-button').disabled = !this.checked;
