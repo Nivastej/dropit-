@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://kit.fontawesome.com/96c75676d8.js" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<title>Drop It</title>
+<style>
+    .container {
+        display: flex;
+        justify-content: space-between;
+        margin: 100px;
+        padding: 20px;
+    }
+    .order-summary, .payment-methods {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .order-summary {
+        flex: 1;
+        margin-right: 20px;
+    }
+    .order-summary img {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+    }
+    .order-summary .item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    .order-summary .details {
+        flex: 1;
+    }
+    .order-summary .details .price {
+        color: #333;
+    }
+    .order-summary .summary {
+        margin-top: 20px;
+    }
+    .order-summary .summary div {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+    .payment-methods {
+        flex: 1;
+    }
+    .payment-methods h2 {
+        margin-bottom: 20px;
+    }
+    .payment-methods .method {
+        margin-bottom: 10px;
+    }
+    .payment-methods .method input {
+        margin-right: 10px;
+    }
+    .payment-methods .card-details {
+        display: none;
+        flex-direction: column;
+        margin-top: 10px;
+    }
+    .payment-methods .card-details input {
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    .payment-methods .card-details .card-number {
+        display: flex;
+        justify-content: space-between;
+    }
+    .payment-methods .card-details .card-number input {
+        width: 30%;
+    }
+    .payment-methods button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #3BB77E;
+        color: white;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 20px;
+    }
+    .payment-methods button:hover {
+        background-color: #2a8f62;
+    }
+</style>
+</head>
+<body>
+    <div id="navbar"></div>
+    <script src="navbar.js"></script>
+    <div class="container">
+        <div class="order-summary">
+            <h2>Order Summary</h2>
+            <div id="orderItems"></div>
+            <div class="summary">
+                <div>
+                    <span>Subtotal</span>
+                    <span id="subtotal"></span>
+                </div>
+                <div>
+                    <span>Sales tax (5%)</span>
+                    <span id="tax"></span>
+                </div>
+                <div>
+                    <span>Shipping Fee</span>
+                    <span>FREE</span>
+                </div>
+                <div>
+                    <span>Total due</span>
+                    <span id="totalDue"></span>
+                </div>
+            </div>
+        </div>
+        <div class="payment-methods">
+            <h2>Payment Methods</h2>
+            <div class="method">
+                <input type="radio" name="payment-method" id="pay-on-delivery" onclick="toggleCardDetails()">
+                <label for="pay-on-delivery">Pay on Delivery</label>
+            </div>
+            <div class="method">
+                <input type="radio" name="payment-method" id="credit-debit-card" onclick="toggleCardDetails()" checked>
+                <label for="credit-debit-card">Credit/Debit Cards</label>
+                <div class="card-details" id="cardDetails">
+                    <input type="text" placeholder="Card number">
+                    <div class="card-number">
+                        <input type="text" placeholder="MM / YY">
+                        <input type="text" placeholder="CVV">
+                    </div>
+                </div>
+            </div>
+            <div class="method">
+                <input type="radio" name="payment-method" id="bank-transfer" onclick="toggleCardDetails()">
+                <label for="bank-transfer">Direct Bank Transfer</label>
+            </div>
+            <div class="method">
+                <input type="radio" name="payment-method" id="other-methods" onclick="toggleCardDetails()">
+                <label for="other-methods">Other Payment Methods</label>
+            </div>
+            <button>Pay <span id="totalPay">₹0.00</span></button>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cartItems = JSON.parse(localStorage.getItem('checkoutItems')) || [];
+            const orderItemsContainer = document.getElementById('orderItems');
+            let subtotal = 0;
+
+            cartItems.forEach(item => {
+                const itemElement = document.createElement('div');
+                itemElement.classList.add('item');
+
+                itemElement.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="details">
+                        <div>${item.name}</div>
+                        <div class="price">₹${item.price.toFixed(2)} x ${item.quantity}</div>
+                    </div>
+                `;
+
+                orderItemsContainer.appendChild(itemElement);
+                subtotal += item.price * item.quantity;
+            });
+
+            const tax = subtotal * 0.05;
+            const totalDue = subtotal + tax;
+
+            document.getElementById('subtotal').textContent = `₹${subtotal.toFixed(2)}`;
+            document.getElementById('tax').textContent = `₹${tax.toFixed(2)}`;
+            document.getElementById('totalDue').textContent = `₹${totalDue.toFixed(2)}`;
+            document.getElementById('totalPay').textContent = `₹${totalDue.toFixed(2)}`;
+        });
+
+        function toggleCardDetails() {
+            const cardDetails = document.getElementById('cardDetails');
+            const creditDebitCard = document.getElementById('credit-debit-card');
+
+            if (creditDebitCard.checked) {
+                cardDetails.style.display = 'flex';
+            } else {
+                cardDetails.style.display = 'none';
+            }
+        }
+
+        toggleCardDetails();
+    </script>
+</body>
+</html>

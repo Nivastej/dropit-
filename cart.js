@@ -172,5 +172,8 @@ function displayEmptyCartMessage() {
 }
 
 function checkout() {
-    alert('not implemeted yet');
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    localStorage.setItem('checkoutItems', JSON.stringify(cartItems));
+    window.location.href = 'checkout.html';
 }
+
