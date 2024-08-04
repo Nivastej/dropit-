@@ -32,14 +32,14 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         <div class="navbar-item navbar-right">
             <div class="navbar-item">
-                <a href="wishlist.html"><i class="fa-regular fa-heart icon"></i></a>
+                <a href="wishlist.html"><img src="./assets/heart.png" alt="Heart"></a>
             </div>
             <div class="navbar-item dropdown">
-                <a href="cart.html"><i class="fas fa-shopping-cart icon"></i><span id="cart-quantity" class="cart-quantity"></span></a>
+                <a href="cart.html"><img src="./assets/li-cart.png" alt="Cart"><span id="cart-quantity" class="cart-quantity"></span></a>
             </div>
             <div class="navbar-item dropdown">
-                <i class="fas fa-user icon"></i>
-                <div class="dropdown-content">
+            <img src="./assets/signup.png" alt="Sign Up">                
+            <div class="dropdown-content">
                     <a href="profile.html">Profile</a>
                     <a href="login.html">Login</a>
                 </div>

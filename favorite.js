@@ -1,10 +1,15 @@
 function toggleWishlist(icon, productName) {
     const productElement = icon.closest('.product-item');
     const productImage = productElement.querySelector('img').src.split('/').pop();
+    const productWeight = productElement.querySelector('.product-weight').innerText;
+
+
     const productPrice = productElement.querySelector('.product-price').textContent.replace('₹ ', '');
 
     const product = {
         name: productName,
+        weight: productWeight,
+
         image: productImage,
         price: productPrice
     };

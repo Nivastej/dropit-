@@ -122,6 +122,8 @@
 </style>
 </head>
 <body>
+    <script src="footer.js"></script>
+
     <div id="above-bar"></div>
 
     <div id="navbar"></div>
@@ -281,7 +283,7 @@
                         <p>Ginger</p>
                         <i class="far fa-heart heart-icon" onclick="toggleWishlist(this, 'Ginger')"></i>
                     </div>
-                    <span>200g</span>
+                    <span class="product-weight">1kg</span>
                     <div class="product-rating" style="margin-top: 10px;">
                         <i class="fas fa-star star"></i>
                         <i class="fas fa-star star"></i>
@@ -311,7 +313,7 @@
                         <p>Product 3</p>
                         <i class="far fa-heart heart-icon" onclick="toggleWishlist(this, 'Product 3')"></i>
                     </div>
-                    <span>1kg</span>
+                    <span class="product-weight">1kg</span>
                     <div class="product-rating" style="margin-top: 10px;">
                         <i class="fas fa-star star"></i>
                         <i class="fas fa-star star"></i>
@@ -341,7 +343,7 @@
                         <p>Product 4</p>
                         <i class="far fa-heart heart-icon" onclick="toggleWishlist(this, 'Product 4')"></i>
                     </div>
-                    <span>1kg</span>
+                    <span class="product-weight">1kg</span>
                     <div class="product-rating" style="margin-top: 10px;">
                         <i class="fas fa-star star"></i>
                         <i class="fas fa-star star"></i>
@@ -366,6 +368,12 @@
             </div>
             <button class="arrow right-arrow"><i class="fas fa-arrow-right"></i></button>
         </div>   
+    </div>
+
+
+    <div class="rect-imageshp">
+        <img src="assets/home-offer.png" alt="" class="rec-img-1hp">
+        <img src="assets/home-offer.png" alt="" class="rec-img-1hp">
     </div>
 
 <!-- daily best -->
@@ -694,6 +702,29 @@
     </div>
 </div>
 
+<div class="main-contenthp">    
+    <div class="containerhp" style="background-image: url(assets/rectangle.png); ">
+        <div class="image-sectionhp">
+            <img src="assets/home-connect1.png" alt="App Screenshots" class="app-screenshotshp">
+        </div>
+        <div class="text-sectionhp">
+            <h1>Connecting our users with iOS & Android apps. Download from App store  & Play Store</h1>
+            <p>Lorem ipsum dolor sit amet consectetur. Sit in sed sed rutrum ultrices egestas. Neque leo praesent odio diam. Vel amet vitae pulvinar cursus enim sagittis enim. Cum arcu vitae non scelerisque cursus eget mi.</p>
+            <div class="buttonshp">
+                <a href="#" class="btnhp app-storehp">
+                    <i class="fab fa-apple"></i>
+                    <div class="btn-text">Download on the App Store</div>
+                </a>
+                <a href="#" class="btnhp google-playhp">
+                    <i class="fab fa-google-play"></i>
+                    <div class="btn-text">Get it on Google Play</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <script src="navbar.js"></script>
 <script src="slider.js"></script>
 <script src="favorite.js"></script>
@@ -711,7 +742,7 @@
             targetDate = new Date(targetDate);
         }
 
-        function functionTimer() {
+        function updateTimer() {
             const now = new Date();
             const timeDifference = targetDate - now;
             if (timeDifference <= 0) {
@@ -726,8 +757,8 @@
                 document.getElementById('timer').innerHTML = `${hours} : ${minutes.toString().padStart(2, '0')} : ${seconds.toString().padStart(2, '0')}`;
             }
         }
-        const timerInterval = setInterval(functionTimer, 1000);
-        functionTimer();
+        const timerInterval = setInterval(updateTimer, 1000);
+        updateTimer();
     }
 
     document.addEventListener('DOMContentLoaded', initializeTimer);
