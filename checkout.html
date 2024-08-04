@@ -201,6 +201,8 @@
             localStorage.setItem('paymentMethod', paymentMethod);
             localStorage.setItem('totalDue', totalDue);
             localStorage.setItem('paymentTime', paymentTime);
+            //celar cart
+            localStorage.removeItem('cartItems');
             window.location.href = 'order-confirmation.html';
         }
     </script>
