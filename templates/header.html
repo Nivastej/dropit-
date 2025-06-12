@@ -7,7 +7,7 @@
   <title>Drop It</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css" />
   <style>
     html {
       scroll-behavior: smooth;
@@ -400,39 +400,62 @@
     <a href="#">Account</a>
     <a href="#">Track order</a>
     <div class="support-link">
-      <a href="support.html"><img src="images/Call.png" alt="24/7 Support" width="20"> 24/7 support center</a>
+      <a href="support.html"><img src="static/images/Call.png" alt="24/7 Support" width="20"> 24/7 support center</a>
     </div>
   </section>
 
   <header class="header">
 
       
-    <a href="index.html" class="logo"><img src="images/logo.png" alt="Drop IT" height="30"> DROPIT</a>
+    <a href="{{ url_for('index') }}" class="logo">
+<img src="static/assets/logo.png" alt="Drop IT" height="30"> DROPIT</a>
 <nav class="location">
     <a href="#" class="location-link"></a>
-    <img src="images/bx-current-location.svg" alt="location" width="25">
+    <img src="static/images/bx-current-location.svg" alt="location" width="25">
 </nav>
     <nav class="navbar">
       <div class="search-bar">
-        <a href="categories.html" class="all-categories">All Categories</a>
+        <a href="{{ url_for('categories') }}" class="all-categories">All Categories</a>
         <img src="images/down green.svg" alt="Down Arrow" class="down-arrow">
         <input type="text" placeholder="Search...">
         <button type="submit"><img src="images/Search-btn.png" alt="Search Icon" width="25"></button>
       </div>
-      <a href="wishlist.html"><img src="images/wishlist.png" alt="Wishlist" width="20"> </a>
-      <a href="cart.html"><img src="images/cart.png" alt="My Cart" width="20">  </a>
-      <a href="login.html"><img src="images/Profile.png" alt="Signup Logo" width="20">  </a>
-    </nav>
+      <a href="{{ url_for('wishlist') }}">
+          <img src="{{ url_for('static', filename='assets/wishlist.png') }}" alt="Wishlist" width="20">
+      </a>
+
+      <a href="{{ url_for('cart') }}">
+        <img src="{{ url_for('static', filename='assets/cart.png') }}" alt="My Cart" width="20">
+      </a>
+
+      <a href="{{ url_for('login') }}">
+        <img src="{{ url_for('static', filename='assets/Profile.png') }}" alt="Signup Logo" width="20">
+      </a>
+
   </header>
 
   <nav class="sub-navbar">
     <div class="sub-navbar-center">
-      <a href="index.html"><img src="images/home.png" alt="Home" width="20"> all categories</a>
-      
-    
-      <a href="index.html"><img src="images/home.png" alt="Home" width="20"> Home</a>
-      <a href="hot-deals.html"><img src="images/hot deals.png" alt="Hot Deals" width="20"> Hot Deals</a>
-      <a href="new-products.html"><img src="images/megaphone(new products).png" alt="New Products" width="20"> New Products</a>
+      <a href="{{ url_for('index') }}">
+        <img src="{{ url_for('static', filename='assets/home.png') }}" alt="Home" width="20">
+        All Categories
+      </a>
+
+      <a href="{{ url_for('index') }}">
+        <img src="{{ url_for('static', filename='assets/home.png') }}" alt="Home" width="20">
+        Home
+      </a>
+
+      <a href="{{ url_for('hot_deals') }}">
+        <img src="{{ url_for('static', filename='assets/hot deals.png') }}" alt="Hot Deals" width="20">
+        Hot Deals
+      </a>
+
+      <a href="{{ url_for('new_products') }}">
+        <img src="{{ url_for('static', filename='assets/megaphone(new products).png') }}" alt="New Products" width="20">
+        New Products
+      </a>
+
     </div>
   </nav>
 
@@ -525,7 +548,8 @@
           <img src="images/tomato.png" alt="Product 1">
           <div class="product-name-wrapper">
             <p>Tomato Local</p>
-            <i class="far fa-heart heart-icon" onclick="toggleWishlist(this, 'Tomato Local')"></i>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
           </div>
           <span>1kg</span>
           <div class="product-rating">

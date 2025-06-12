@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://kit.fontawesome.com/96c75676d8.js" crossorigin="anonymous"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyX95Pp5Kdh_u6Gv_BSRYuu4jSt3dZjJo&libraries=places"></script>
+<script src="static/https://kit.fontawesome.com/96c75676d8.js" crossorigin="anonymous"></script>
+<script src="static/https://maps.googleapis.com/maps/api/js?key=AIzaSyDyX95Pp5Kdh_u6Gv_BSRYuu4jSt3dZjJo&libraries=places"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
 <title>Drop It</title>
 <style>
@@ -221,14 +221,14 @@ body {
     <div class="container">
         <div class="sidebar">
             <ul class="sidebar-menu">
-                <li><a href="profile.html" class="sidebar-buttons"><img src="assets/dashboard.png" alt="Dashboard"> Dashboard</a></li>
-                <li><a href="personal-info.html" class="sidebar-buttons"><img src="assets/person.png" alt="Personal Info"> Personal Info</a></li>
-                <li><a href="payments.html" class="sidebar-buttons"><img src="assets/pay.png" alt="Payment Method"> Payment Method</a></li>
-                <li><a href="orders.html" class="sidebar-buttons"><img src="assets/orders-dashboard.png" alt="Order"> Order</a></li>
-                <li><a href="wishlist.html" class="sidebar-buttons"><img src="assets/wishlist.png" alt="Wishlist"> Wishlist</a></li>
-                <li><a href="address.html" class="sidebar-buttons"><img src="assets/address.png" alt="Address"> Address</a></li>
-                <li><a href="change-password.html" class="sidebar-buttons"><img src="assets/password.png" alt="Change Password"> Change Password</a></li>
-                <li><a href="logout.html" class="sidebar-buttons"><img src="assets/log-in.png" alt="Logout"> Logout</a></li>
+                <li><a href="profile.html" class="sidebar-buttons"><img src="static/assets/dashboard.png" alt="Dashboard"> Dashboard</a></li>
+                <li><a href="personal-info.html" class="sidebar-buttons"><img src="static/static/assets/person.png" alt="Personal Info"> Personal Info</a></li>
+                <li><a href="payments.html" class="sidebar-buttons"><img src="static/assets/pay.png" alt="Payment Method"> Payment Method</a></li>
+                <li><a href="orders.html" class="sidebar-buttons"><img src="static/assets/orders-dashboard.png" alt="Order"> Order</a></li>
+                <li><a href="wishlist.html" class="sidebar-buttons"><img src="static/assets/wishlist.png" alt="Wishlist"> Wishlist</a></li>
+                <li><a href="address.html" class="sidebar-buttons"><img src="static/assets/address.png" alt="Address"> Address</a></li>
+                <li><a href="change-password.html" class="sidebar-buttons"><img src="static/assets/password.png" alt="Change Password"> Change Password</a></li>
+                <li><a href="logout.html" class="sidebar-buttons"><img src="static/assets/log-in.png" alt="Logout"> Logout</a></li>
             </ul>
         </div>
         <div class="main-content">
@@ -239,17 +239,17 @@ body {
             </div>
             <div class="stats-container">
                 <div class="stat-box">
-                    <img src="./assets/cart-profile.png" alt="cart">
+                    <img src="static/./assets/cart-profile.png" alt="cart">
                     <p style="font-size: 18px; font-weight: 400;">Orders till now</p>
                     <p>00</p>
                 </div>
                 <div class="stat-box">
-                    <img src="./assets/delivery.png" alt="Deliveries">
+                    <img src="static/./assets/delivery.png" alt="Deliveries">
                     <p style="font-size: 18px; font-weight: 400;">Successful Deliveries</p>
                     <p>00</p>
                 </div>
                 <div class="stat-box">
-                    <img src="./assets/cust-support.png" alt="Customer Support">
+                    <img src="static/./assets/cust-support.png" alt="Customer Support">
                     <p style="font-size: 18px; font-weight: 400;">Issues Raised</p>
                     <p>00</p>
                 </div>
@@ -290,7 +290,7 @@ body {
         });
     </script>
 
-<script src="./navbar.js"></script>
+<script src="static/./navbar.js"></script>
 
 </body>
 </html>

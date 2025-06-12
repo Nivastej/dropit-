@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://kit.fontawesome.com/96c75676d8.js" crossorigin="anonymous"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyX95Pp5Kdh_u6Gv_BSRYuu4jSt3dZjJo&libraries=places"></script>
+<script src="static/https://kit.fontawesome.com/96c75676d8.js" crossorigin="anonymous"></script>
+<script src="static/https://maps.googleapis.com/maps/api/js?key=AIzaSyDyX95Pp5Kdh_u6Gv_BSRYuu4jSt3dZjJo&libraries=places"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
 <title>Drop It</title>
 <style>
     html {
@@ -122,31 +123,13 @@
 </style>
 </head>
 <body>
-    <script src="footer.js"></script>
+    <script src="static/footer.js"></script>
 
     <div id="above-bar"></div>
 
     <div id="navbar"></div>
     <div id="bottom-bar"></div>
 
-<!-- <div class="bottom-bar">
-        <div class="bottom-bar-left">
-            <a href="index.html" class="bottom-bar-item">
-                <i class="fas fa-home"></i> Home
-            </a>
-            <a href="hotdeals.html" class="bottom-bar-item">
-                <i class="fas fa-fire"></i> Hot Deals
-            </a>
-            <a href="new_products.html" class="bottom-bar-item">
-                <img src="assets/li_megaphone.png" alt="New Products"> New Products
-            </a>
-        </div>
-        <div class="bottom-bar-right">
-            <div class="bottom-bar-item">
-                <i class="fas fa-phone"></i> 108-10808 24/7 Support Center
-            </div>
-        </div>
-    </div> -->
 
     <div class="hero-section">
         <div class="hero-text">
@@ -155,14 +138,13 @@
                 <p>Save up to 50% off on your first order</p>
             </div>
             <div class="email-subscription">
-                <!-- <i class="fa-regular fa-envelope"></i>
-                <img src="assets/li_send.png" alt="send icon"> -->
+               
                 <input type="email" placeholder="Enter your email address">
                 <button>Subscribe</button>
             </div>
         </div>
         <div class="hero-image">
-            <img src="./assets/hero.png" alt="Grocery Deals">
+            <img src="static/./assets/hero.png" alt="Grocery Deals">
         </div>
     </div>
     
@@ -173,53 +155,54 @@
         <div class="explore-header">
             <p>Explore</p>
             <div class="explore-buttons">
-                <a href="index.html" class="explore-button">All</a>
-                <a href="vegetables.html" class="explore-button">Vegetables</a>
-                <a href="fruits.html" class="explore-button">Fruits</a>
-                <a href="stationery.html" class="explore-button">Stationery</a>
-                <a href="home_needs.html" class="explore-button">Home Needs</a>
+                <a href="{{ url_for('index') }}" class="explore-button">All</a>
+                <a href="{{ url_for('vegetables') }}" class="explore-button">Vegetables</a>
+                <a href="{{ url_for('fruits') }}" class="explore-button">Fruits</a>
+                <a href="{{ url_for('stationery') }}" class="explore-button">Stationery</a>
+                <a href="{{ url_for('home_needs') }}" class="explore-button">Home Needs</a>
+
             </div>
         </div>
         <div class="categories">
             <button class="arrow left-arrow"><i class="fa-solid fa-chevron-left"></i></i></button>
             <div class="category-list">
                 <div class="category-item" style="background-color: #FEEFEA;">
-                    <img src="./assets/fruits.png" alt="Fruits & Vegetables">
+                    <img src="static/./assets/fruits.png" alt="Fruits & Vegetables">
                     <p>Fruits & Vegetables</p>
                     <span>20 Items</span>
                 </div>
                 <div class="category-item" style="background-color: #FFF3FF;">
-                    <img src="./assets/masala.png" alt="Masala & Dry Fruits">
+                    <img src="static/./assets/masala.png" alt="Masala & Dry Fruits">
                     <p>Masala & Dry Fruits</p>
                     <span>220 Items</span>
                 </div>
                 <div class="category-item" style="background-color: #F2FCE4;">
-                    <img src="./assets/frozen_food.png" alt="Frozen Food & Ice Creams">
+                    <img src="static/./assets/frozen_food.png" alt="Frozen Food & Ice Creams">
                     <p>Frozen Food & Ice Creams</p>
                     <span>10 Items</span>
                 </div>
                 <div class="category-item" style="background-color: #FEEFEA;">
-                    <img src="./assets/packaged.png" alt="Packaged Food">
+                    <img src="static/./assets/packaged.png" alt="Packaged Food">
                     <p>Packaged Food</p>
                     <span>40 Items</span>
                 </div>
                 <div class="category-item" style="background-color: #ECFFEC;">
-                    <img src="./assets/juice.png" alt="Cool Drinks & Juices">
+                    <img src="static/./assets/juice.png" alt="Cool Drinks & Juices">
                     <p>Cool Drinks & Juices</p>
                     <span>23 Items</span>
                 </div>
                 <div class="category-item" style="background-color: #FFFCEB;">
-                    <img src="./assets/electrical.png" alt="Electrical & Accessories">
+                    <img src="static/./assets/electrical.png" alt="Electrical & Accessories">
                     <p>Electrical & Accessories</p>
                     <span>3 Items</span>
                 </div>
                 <div class="category-item" style="background-color: #DEF9EC;">
-                    <img src="./assets/stationery.png" alt="Stationery & Crafts">
+                    <img src="static/./assets/stationery.png" alt="Stationery & Crafts">
                     <p>Stationery & Crafts</p>
                     <span>9 Items</span>
                 </div>
                 <div class="category-item" style="background-color: #ECFFEC;">
-                    <img src="./assets/juice.png" alt="Cool Drinks & Juices">
+                    <img src="static/./assets/juice.png" alt="Cool Drinks & Juices">
                     <p>Cool Drinks & Juices</p>
                     <span>23 Items</span>
                 </div>
@@ -236,18 +219,19 @@
         <div class="featured-header">
             <p>Featured Products</p>
             <div class="featured-buttons">
-                <a href="index.html" class="featured-button">All</a>
-                <a href="vegetables.html" class="featured-button">Vegetables</a>
-                <a href="fruits.html" class="featured-button">Fruits</a>
-                <a href="stationery.html" class="featured-button">Stationery</a>
-                <a href="home_needs.html" class="featured-button">Home Needs</a>
+                <a href="{{ url_for('index') }}" class="featured-button">All</a>
+                <a href="{{ url_for('vegetables') }}" class="featured-button">Vegetables</a>
+                <a href="{{ url_for('fruits') }}" class="featured-button">Fruits</a>
+                <a href="{{ url_for('stationery') }}" class="featured-button">Stationery</a>
+                <a href="{{ url_for('home_needs') }}" class="featured-button">Home Needs</a>
+
             </div>
         </div>
         <div class="featured-products">
             <button class="arrow left-arrow"><i class="fas fa-arrow-left"></i></button>
             <div class="product-list">
                 <div class="product-item">
-                    <img src="./assets/product1.png" alt="Product 1">
+                    <img src="static/./assets/product1.png" alt="Product 1">
                     <div class="product-name-wrapper">
                         <p>Tomato Local</p>
                         <i class="far fa-heart heart-icon" onclick="toggleWishlist(this, 'Tomato Local')"></i>
@@ -278,7 +262,7 @@
                 </div>             
                 
                 <div class="product-item">
-                    <img src="./assets/product2.png" alt="Product 2">
+                    <img src="static/./assets/product2.png" alt="Product 2">
                     <div class="product-name-wrapper">
                         <p>Ginger</p>
                         <i class="far fa-heart heart-icon" onclick="toggleWishlist(this, 'Ginger')"></i>
@@ -308,7 +292,7 @@
                     </div>
                 </div>
                 <div class="product-item">
-                    <img src="./assets/product3.png" alt="Product 3">
+                    <img src="static/./assets/product3.png" alt="Product 3">
                     <div class="product-name-wrapper">
                         <p>Product 3</p>
                         <i class="far fa-heart heart-icon" onclick="toggleWishlist(this, 'Product 3')"></i>
@@ -338,7 +322,7 @@
                     </div>
                 </div>
                 <div class="product-item">
-                    <img src="./assets/product4.png" alt="Product 4">
+                    <img src="static/./assets/product4.png" alt="Product 4">
                     <div class="product-name-wrapper">
                         <p>Product 4</p>
                         <i class="far fa-heart heart-icon" onclick="toggleWishlist(this, 'Product 4')"></i>
@@ -372,8 +356,8 @@
 
 
     <div class="rect-imageshp">
-        <img src="assets/home-offer.png" alt="" class="rec-img-1hp">
-        <img src="assets/home-offer.png" alt="" class="rec-img-1hp">
+        <img src="static/assets/home-offer.png" alt="" class="rec-img-1hp">
+        <img src="static/assets/home-offer.png" alt="" class="rec-img-1hp">
     </div>
 
 <!-- daily best -->
@@ -383,9 +367,10 @@
             <p>Daily Best Sells</p>
             <div class="daily-best-buttons">
 
-                <a href="index.html" class="daily-best-button">Featured</a>
-                <a href="popular.html" class="daily-best-button">Popular</a>
-                <a href="new-products.html" class="daily-best-button">New</a>
+                <a href="{{ url_for('index') }}" class="daily-best-button">Featured</a>
+                <a href="{{ url_for('popular') }}" class="daily-best-button">Popular</a>
+                <a href="{{ url_for('new_products') }}" class="daily-best-button">New</a>
+
             </div>
 
             <div class="expires-in">
@@ -398,7 +383,7 @@
     <div class="products-wrapper">
         <div class="product-card">
             <div class="discount-label">Save 10%</div>
-            <img src="./assets/coffee.png" alt="Coffee">
+            <img src="static/./assets/coffee.png" alt="Coffee">
             <p class="category">Coffee & Tea</p>
             <p class="product-title">Coffee 1kg</p>
             <div class="product-rating">
@@ -463,7 +448,7 @@
     <div class="top">
         <p class="top-sells-heading">Top Sells</p>
         <div class="product">
-            <img src="assets/aashirvaad.png" alt="aashirvaad">
+            <img src="static/assets/aashirvaad.png" alt="aashirvaad">
             <div class="product-info">
                 <p class="top-product-name">Aashirvaad select</p>
                 <div class="product-rating" style="margin-bottom: 5px;">
@@ -482,7 +467,7 @@
         </div>
 
         <div class="product">
-            <img src="assets/leaf.png" alt="leaf">
+            <img src="static/assets/leaf.png" alt="leaf">
             <div class="product-info">
                 <p class="top-product-name">Lorem Ipsum</p>
                 <div class="product-rating" style="margin-bottom: 5px;">
@@ -501,7 +486,7 @@
         </div>
 
         <div class="product">
-            <img src="assets/starwberry.png" alt="starwberry">
+            <img src="static/assets/starwberry.png" alt="starwberry">
             <div class="product-info">
                 <p class="top-product-name">Lorem Ipsum</p>
                 <div class="product-rating" style="margin-bottom: 5px;">
@@ -524,7 +509,7 @@
     <div class="top">
         <p class="top-sells-heading">Top Rating</p>
         <div class="product">
-            <img src="assets/salt.png" alt="Sugar">
+            <img src="static/assets/salt.png" alt="Sugar">
             <div class="product-info">
                 <p class="top-product-name">White Sugar</p>
                 <div class="product-rating" style="margin-bottom: 5px;">
@@ -543,7 +528,7 @@
         </div>
 
         <div class="product">
-            <img src="assets/orange.png" alt="starwberry">
+            <img src="static/assets/orange.png" alt="starwberry">
             <div class="product-info">
                 <p class="top-product-name">Lorem Ipsum</p>
                 <div class="product-rating" style="margin-bottom: 5px;">
@@ -562,7 +547,7 @@
         </div>
 
         <div class="product">
-            <img src="assets/apple.png" alt="starwberry">
+            <img src="static/assets/apple.png" alt="starwberry">
             <div class="product-info">
                 <p class="top-product-name">Lorem Ipsum</p>
                 <div class="product-rating" style="margin-bottom: 5px;">
@@ -584,7 +569,7 @@
     <div class="top">
         <p class="top-sells-heading">Trending Items</p>
         <div class="product">
-            <img src="assets/carrot.png" alt="starwberry">
+            <img src="static/assets/carrot.png" alt="starwberry">
             <div class="product-info">
                 <p class="top-product-name">Carrots 1kg</p>
                 <div class="product-rating" style="margin-bottom: 5px;">
@@ -603,7 +588,7 @@
         </div>
 
         <div class="product">
-            <img src="assets/potato.png" alt="potato">
+            <img src="static/assets/potato.png" alt="potato">
             <div class="product-info">
                 <p class="top-product-name">Lorem Ipsum</p>
                 <div class="product-rating" style="margin-bottom: 5px;">
@@ -622,7 +607,7 @@
         </div>
 
         <div class="product">
-            <img src="assets/carrot.png" alt="carrot">
+            <img src="static/assets/carrot.png" alt="carrot">
             <div class="product-info">
                 <p class="top-product-name">Lorem Ipsum</p>
                 <div class="product-rating" style="margin-bottom: 5px;">
@@ -644,7 +629,7 @@
     <div class="top">
         <p class="top-sells-heading">Recently added</p>
         <div class="product">
-            <img src="assets/starwberry.png" alt="starwberry">
+            <img src="static/assets/starwberry.png" alt="starwberry">
             <div class="product-info">
                 <p class="top-product-name">Starwberry 1kgg</p>
                 <div class="product-rating" style="margin-bottom: 5px;">
@@ -663,7 +648,7 @@
         </div>
 
         <div class="product">
-            <img src="assets/battery.png" alt="starwberry">
+            <img src="static/assets/battery.png" alt="starwberry">
             <div class="product-info">
                 <p class="top-product-name">Lorem Ipsum</p>
                 <div class="product-rating" style="margin-bottom: 5px;">
@@ -682,7 +667,7 @@
         </div>
 
         <div class="product">
-            <img src="assets/gadget.png" alt="starwberry">
+            <img src="static/assets/gadget.png" alt="starwberry">
             <div class="product-info">
                 <p class="top-product-name">Lorem Ipsum</p>
                 <div class="product-rating" style="margin-bottom: 5px;">
@@ -705,7 +690,7 @@
 <div class="main-contenthp">    
     <div class="containerhp" style="background-image: url(assets/rectangle.png); ">
         <div class="image-sectionhp">
-            <img src="assets/home-connect1.png" alt="App Screenshots" class="app-screenshotshp">
+            <img src="static/assets/home-connect1.png" alt="App Screenshots" class="app-screenshotshp">
         </div>
         <div class="text-sectionhp">
             <h1>Connecting our users with iOS & Android apps. Download from App store  & Play Store</h1>
@@ -725,10 +710,10 @@
 </div>
 
 
-<script src="navbar.js"></script>
-<script src="slider.js"></script>
-<script src="favorite.js"></script>
-<script src="quantity.js"></script>
+<script src="static/navbar.js"></script>
+<script src="static/slider.js"></script>
+<script src="static/favorite.js"></script>
+<script src="static/quantity.js"></script>
 
 <script>
     const targetDateKey = 'timerTargetDate';

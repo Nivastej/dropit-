@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://kit.fontawesome.com/96c75676d8.js" crossorigin="anonymous"></script>
+<script src="static/https://kit.fontawesome.com/96c75676d8.js" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}""
 <title>Drop It | Wishlist</title>
 <style>
     body {
@@ -135,7 +135,7 @@
             listItem.classList.add('wishlist-item');
 
             listItem.innerHTML = `
-                <img src="./assets/${item.image}" alt="${item.name}" class="wishlist-image">
+                <img src="static/./assets/${item.image}" alt="${item.name}" class="wishlist-image">
                 <p class="wishlist-name">${item.name}</p>
                 <p class="wishlist-price">₹${item.price}</p>
                 <div class="wishlist-actions">
@@ -207,8 +207,8 @@
     }
 </script>
 
-<script src="./navbar.js"></script>
-<script src="footer.js"></script>
+<script src="static/./navbar.js"></script>
+<script src="static/footer.js"></script>
 
 </body>
 </html> -->
@@ -218,7 +218,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://kit.fontawesome.com/96c75676d8.js" crossorigin="anonymous"></script>
+<script src="static/https://kit.fontawesome.com/96c75676d8.js" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
@@ -404,7 +404,7 @@
 
                 listItem.innerHTML = `
                     <div class="wishlist-product">
-                        <img src="./assets/${item.image}" alt="${item.name}" class="wishlist-image">
+                        <img src="static/./assets/${item.image}" alt="${item.name}" class="wishlist-image">
                         <div>
                             <p class="wishlist-name">${item.name || ''}</p>
                             <p class="wishlist-weight">${item.weight || ''}</p>
@@ -479,8 +479,8 @@
         }
     </script>
 
-    <script src="./navbar.js"></script>
-    <script src="footer.js"></script>
+    <script src="static/./navbar.js"></script>
+    <script src="static/footer.js"></script>
 
 </body>
 </html>

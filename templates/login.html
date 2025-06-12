@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/96c75676d8.js" crossorigin="anonymous"></script>
+    <script src="static/https://kit.fontawesome.com/96c75676d8.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Drop It | Login</title>
     <style>
         body {
@@ -104,9 +104,9 @@
             max-width: 1000px;
         }
     </style>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="static/https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="static/https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="static/https://www.google.com/recaptcha/api.js" async defer></script>
     <script>
         //firebase config
         const firebaseConfig = {
@@ -187,7 +187,7 @@
     <div id="above-bar"></div>
     <div id="navbar"></div>
     <div id="bottom-bar"></div>
-    <script src="navbar.js"></script>
+    <script src="static/navbar.js"></script>
 
     <div class="user-container">
         <div id="message" class="message"></div>
@@ -211,6 +211,6 @@
         </div>
     </div>
 
-    <img src="./assets/register-bg.png" alt="register-image" class="bottom-right-img">
+    <img src="static/./assets/register-bg.png" alt="register-image" class="bottom-right-img">
 </body>
 </html>

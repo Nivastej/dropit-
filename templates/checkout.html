@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://kit.fontawesome.com/96c75676d8.js" crossorigin="anonymous"></script>
+<script src="static/https://kit.fontawesome.com/96c75676d8.js" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 <title>Drop It</title>
 <style>
     .container {
@@ -174,7 +174,7 @@
 </head>
 <body>
     <div id="navbar"></div>
-    <script src="navbar.js"></script>
+    <script src="static/navbar.js"></script>
     <div class="container">
         <div class="order-summary">
             <h2>Order Summary</h2>
@@ -304,7 +304,7 @@
                 itemElement.classList.add('item');
 
                 itemElement.innerHTML = `
-                    <img src="${item.image}" alt="${item.name}">
+                    <img src="static/${item.image}" alt="${item.name}">
                     <div class="details">
                         <p style="color:black";>${item.name}</p>
                         <p class="price">₹${item.price.toFixed(2)} x ${item.quantity}</p>
@@ -397,6 +397,6 @@
             window.location.href = 'order-confirmation.html';
         }
     </script>
-    <script src="footer.js"></script>
+    <script src="static/footer.js"></script>
 </body>
 </html>
